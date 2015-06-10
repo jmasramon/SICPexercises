@@ -187,6 +187,43 @@ size
                           (+ fn-1 (* 2 fn-2) (* 3 fn-3)) )))
   (ff-rec n 0 1 2) )
 
+; 1.12
+(defn pascal [row col] 
+  (cond (< row 0) 0
+        (< col 0) 0
+        (> col row) 0
+        (= row col 0) 1
+        true (+ (pascal (- row 1) (- col 1))
+                (pascal (- row 1) col))))
+
+
+; 1.13
+
+; 1.14
+
+; 1.15
+
+; 1.16
+(defn expt [b n]
+  (if (= n 0) 1 (* b (expt b (- n 1)))))
+
+(defn expt-linear [b n] 
+  (defn expt-rec [b n acc]
+    (if (= n 0) acc (expt-rec b (- n 1) (* b acc)) ))
+  (expt-rec b n 1))
+
+(defn expt-succ [b n]
+  (cond (= n 0) 1 
+        (even? n) (square (expt-succ b (/ n 2)))
+        true (* b (expt-succ b (- n 1)))))
+        
+(defn expt-succ-iter [b n]
+  (defn expt-rec [b n acc]
+    (cond (= n 0) 1
+          (= n 1) acc
+          (even? n) (expt-rec square(b) (/ n 2) (* acc ))
+          true (* b (expt-rec b (- n 1) (* acc b))))
+
 
 
 

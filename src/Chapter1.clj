@@ -62,7 +62,7 @@ size
 ;; 1.1.7
 
 (defn good-enough? [guess x] 
-  (if (< (abs (- (square guess) x)) 0.0000001) true false))
+  (if (< (abs (- (square guess) x)) 0.001) true false))
 
 (defn average [x y] 
   (/ (+ x y) 2))
@@ -85,18 +85,42 @@ size
 
 (sqrt (+ 5 1))
 
-(sqrt 2.2E-10)
 
-(sqrt 2.2E6)
+;; 1.6
 
 ;; 1.7
+(square (sqrt 9)) ;; OK error ~ 5E-4
+
+(square (sqrt 0.0001))
+
+(square (sqrt 2.2E-10)) ;; Very far away from giving back the same num
+
+(square (sqrt 2.2E9)) ;; NullPointerException
+  
+(defn good-enough-improved? [guess nextGuess] 
+  (if (< (abs (- (square guess) nextGuess)) (* guess 0.001)) true false))
+
+(defn sqrt-iter-improved [guess x]
+  (def nextGuess (improve guess x))
+  (if (good-enough-improved? guess nextGuess) guess (sqrt-iter nextGuess x)
+  )
+)
+
+(defn sqrt-improved [x] 
+  (sqrt-iter-improved 1.0 x))
+
+(square (sqrt-improved 9))
+
+(square (sqrt-improved 2.2E-10)) ;; Very far away from giving back the same num
+
+(square (sqrt-improved 2.2E9)) ;; NullPointerException
 
 ;; 1.8 
 (defn cube [x]
   (* x x x))
 
 (defn good-enough-cbrt? [guess x] 
-  (if (< (abs (- (cube guess) x)) 0.0000001) true false))
+  (if (< (abs (- (cube guess) x)) 0.001) true false))
 
 (defn improve-cbrt [guess x]
   (/ (+ (/ x (square guess)) (* 2 guess)) 3))
@@ -107,5 +131,63 @@ size
 (defn cbrt [x]
   (cbrt-iter 1.0 x))
 
-(cbrholalola
-  27)
+(cbrt  27)
+
+(cube (cbrt  27))
+
+;; 1.1.8 
+(defn cbrt2 [x]
+  (defn good-enough-cbrt2? [guess] 
+    (if (< (abs (- (cube guess) x)) 0.001) true false)) 
+  (defn improve-cbrt2 [guess]
+    (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+  (defn cbrt-iter2 [guess]
+    (if (good-enough-cbrt2? guess) guess (cbrt-iter2 (improve-cbrt2 guess))))
+  (cbrt-iter2 1.0))
+
+(cube (cbrt2  27))
+
+;; 1.9
+;(defn + [a b]  
+;  (if (= a 0)  
+;      b  
+;      (inc (+ (dec a) b))))  ; recursive
+;  
+;(defn + [a b]  
+;  (if (= a 0)  
+;      b  
+;      (+ (dec a) (inc b)))) ; iterative
+
+; 1.10
+(defn A [x y]  
+  (cond (= y 0) 0  
+        (= x 0) (* 2 y)  
+        (= y 1) 2  
+        :else (A (- x 1)  
+                 (A x (- y 1)))))
+
+(A 1 10)
+
+(A 2 4)
+
+; 1.11
+(defn f [n] 
+  (if (< n 3) n 
+              (+ (f (- n 1)) 
+                 (* 2 (f (- n 2))) 
+                 (* 3 (f (- n 3)))  )))
+
+(defn ff [n] 
+  (defn ff-rec [n fn-3 fn-2 fn-1] 
+    (cond (< n 3) n
+          (= n 3) (+ fn-1 (* 2 fn-2) (* 3 fn-3))
+          true    (ff-rec (- n 1) 
+                          fn-2
+                          fn-1 
+                          (+ fn-1 (* 2 fn-2) (* 3 fn-3)) )))
+  (ff-rec n 0 1 2) )
+
+
+
+
+

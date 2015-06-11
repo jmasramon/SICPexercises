@@ -57,7 +57,7 @@ size
 
 (if (= 0 0) 0 (p))
 
-(testOrder 0 (p))
+;(testOrder 0 (p)) ;stack overflow
 
 ;; 1.1.7
 
@@ -95,7 +95,7 @@ size
 
 (square (sqrt 2.2E-10)) ;; Very far away from giving back the same num
 
-(square (sqrt 2.2E9)) ;; NullPointerException
+;(square (sqrt 2.2E9)) ;; NullPointerException
   
 (defn good-enough-improved? [guess nextGuess] 
   (if (< (abs (- (square guess) nextGuess)) (* guess 0.001)) true false))
@@ -113,7 +113,7 @@ size
 
 (square (sqrt-improved 2.2E-10)) ;; Very far away from giving back the same num
 
-(square (sqrt-improved 2.2E9)) ;; NullPointerException
+;(square (sqrt-improved 2.2E9)) ;; NullPointerException
 
 ;; 1.8 
 (defn cube [x]
@@ -202,29 +202,76 @@ size
 ; 1.14
 
 ; 1.15
+(defn cube [x]
+  (* x x x))
+
+(defn small-enough? [x] 
+  (< x 0.1))
+
+(defn arg-reduction [x]
+  (sinus (/ x 3.0)))
+
+(defn reduced-form [x] 
+  (- (* 3 (arg-reduction x)) (* 4 (cube (arg-reduction x)))))
+  
+(defn sinus [x] 
+  (if (small-enough? x)  x (reduced-form x)))
+
+(sinus 30)
 
 ; 1.16
 (defn expt [b n]
   (if (= n 0) 1 (* b (expt b (- n 1)))))
+
+(expt 2 4)        
 
 (defn expt-linear [b n] 
   (defn expt-rec [b n acc]
     (if (= n 0) acc (expt-rec b (- n 1) (* b acc)) ))
   (expt-rec b n 1))
 
+(expt-linear 2 4)        
+
 (defn expt-succ [b n]
   (cond (= n 0) 1 
         (even? n) (square (expt-succ b (/ n 2)))
         true (* b (expt-succ b (- n 1)))))
-        
+
+(expt-succ 2 4)        
+
 (defn expt-succ-iter [b n]
   (defn expt-rec [b n acc]
-    (cond (= n 0) 1
-          (= n 1) acc
-          (even? n) (expt-rec square(b) (/ n 2) (* acc ))
-          true (* b (expt-rec b (- n 1) (* acc b))))
+    (cond (= n 0) acc
+          (even? n) (expt-rec (square b) (/ n 2)  acc )
+          true (expt-rec b (- n 1) (* acc b))) )
+  (expt-rec b n 1))
 
+(even? 1)
 
+(expt-succ-iter 2 4)
 
+; 1.17
+(defn mult-add [x y] 
+  (cond (or (= x 0) (= y 0)) 0 
+        (= y 1) x
+        true (+ x (mult-add x (- y 1))) ))
 
+(mult-add 3 3)
+
+(defn doub [x]
+  (+ x x))
+
+(defn halve [x]
+  (/ x 2))
+
+(defn fast-mult-add [x y]   
+  (cond (or (= x 0) (= y 0)) 0
+        (= y 1) x  
+        (even? y) (doub (fast-mult-add x (halve y)))
+        true (+ x (fast-mult-add x (- y 1))) )) 
+  
+(fast-mult-add 3 3)
+  
+        
+       
 

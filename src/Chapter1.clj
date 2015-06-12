@@ -12,6 +12,7 @@ size
 
 (* pi (* radius radius))
 
+
 (defn square [x] (* x x))
 
 (square 3)
@@ -28,7 +29,7 @@ size
         true x))
 
 (abs2 -3)
-     
+
 (defn abs3 [x]
   (if (< x 0) (- x) x))
 
@@ -43,7 +44,7 @@ size
          true 0))
 (sqrSumBiggest 3 2 1)
 
-(defn a-plus-abs-b [a b] 
+(defn a-plus-abs-b [a b]
   ( (if (> b 0) + -) a b))
 
 (a-plus-abs-b 2 -3)
@@ -61,13 +62,13 @@ size
 
 ;; 1.1.7
 
-(defn good-enough? [guess x] 
+(defn good-enough? [guess x]
   (if (< (abs (- (square guess) x)) 0.001) true false))
 
-(defn average [x y] 
+(defn average [x y]
   (/ (+ x y) 2))
 
-(defn improve [guess x] 
+(defn improve [guess x]
   (average guess (/ x guess)))
 
 
@@ -78,7 +79,7 @@ size
 
 (sqrt-iter 1.0 2)
 
-(defn sqrt [x] 
+(defn sqrt [x]
   (sqrt-iter 1.0 x))
 
 (sqrt 9)
@@ -96,8 +97,8 @@ size
 (square (sqrt 2.2E-10)) ;; Very far away from giving back the same num
 
 ;(square (sqrt 2.2E9)) ;; NullPointerException
-  
-(defn good-enough-improved? [guess nextGuess] 
+
+(defn good-enough-improved? [guess nextGuess]
   (if (< (abs (- (square guess) nextGuess)) (* guess 0.001)) true false))
 
 (defn sqrt-iter-improved [guess x]
@@ -106,7 +107,7 @@ size
   )
 )
 
-(defn sqrt-improved [x] 
+(defn sqrt-improved [x]
   (sqrt-iter-improved 1.0 x))
 
 (square (sqrt-improved 9))
@@ -115,11 +116,11 @@ size
 
 ;(square (sqrt-improved 2.2E9)) ;; NullPointerException
 
-;; 1.8 
+;; 1.8
 (defn cube [x]
   (* x x x))
 
-(defn good-enough-cbrt? [guess x] 
+(defn good-enough-cbrt? [guess x]
   (if (< (abs (- (cube guess) x)) 0.001) true false))
 
 (defn improve-cbrt [guess x]
@@ -135,10 +136,10 @@ size
 
 (cube (cbrt  27))
 
-;; 1.1.8 
+;; 1.1.8
 (defn cbrt2 [x]
-  (defn good-enough-cbrt2? [guess] 
-    (if (< (abs (- (cube guess) x)) 0.001) true false)) 
+  (defn good-enough-cbrt2? [guess]
+    (if (< (abs (- (cube guess) x)) 0.001) true false))
   (defn improve-cbrt2 [guess]
     (/ (+ (/ x (square guess)) (* 2 guess)) 3))
   (defn cbrt-iter2 [guess]
@@ -148,22 +149,22 @@ size
 (cube (cbrt2  27))
 
 ;; 1.9
-;(defn + [a b]  
-;  (if (= a 0)  
-;      b  
+;(defn + [a b]
+;  (if (= a 0)
+;      b
 ;      (inc (+ (dec a) b))))  ; recursive
-;  
-;(defn + [a b]  
-;  (if (= a 0)  
-;      b  
+;
+;(defn + [a b]
+;  (if (= a 0)
+;      b
 ;      (+ (dec a) (inc b)))) ; iterative
 
 ; 1.10
-(defn A [x y]  
-  (cond (= y 0) 0  
-        (= x 0) (* 2 y)  
-        (= y 1) 2  
-        :else (A (- x 1)  
+(defn A [x y]
+  (cond (= y 0) 0
+        (= x 0) (* 2 y)
+        (= y 1) 2
+        :else (A (- x 1)
                  (A x (- y 1)))))
 
 (A 1 10)
@@ -171,24 +172,24 @@ size
 (A 2 4)
 
 ; 1.11
-(defn f [n] 
-  (if (< n 3) n 
-              (+ (f (- n 1)) 
-                 (* 2 (f (- n 2))) 
+(defn f [n]
+  (if (< n 3) n
+              (+ (f (- n 1))
+                 (* 2 (f (- n 2)))
                  (* 3 (f (- n 3)))  )))
 
-(defn ff [n] 
-  (defn ff-rec [n fn-3 fn-2 fn-1] 
+(defn ff [n]
+  (defn ff-rec [n fn-3 fn-2 fn-1]
     (cond (< n 3) n
           (= n 3) (+ fn-1 (* 2 fn-2) (* 3 fn-3))
-          true    (ff-rec (- n 1) 
+          true    (ff-rec (- n 1)
                           fn-2
-                          fn-1 
+                          fn-1
                           (+ fn-1 (* 2 fn-2) (* 3 fn-3)) )))
   (ff-rec n 0 1 2) )
 
 ; 1.12
-(defn pascal [row col] 
+(defn pascal [row col]
   (cond (< row 0) 0
         (< col 0) 0
         (> col row) 0
@@ -205,16 +206,16 @@ size
 (defn cube [x]
   (* x x x))
 
-(defn small-enough? [x] 
+(defn small-enough? [x]
   (< x 0.1))
 
 (defn arg-reduction [x]
   (sinus (/ x 3.0)))
 
-(defn reduced-form [x] 
+(defn reduced-form [x]
   (- (* 3 (arg-reduction x)) (* 4 (cube (arg-reduction x)))))
-  
-(defn sinus [x] 
+
+(defn sinus [x]
   (if (small-enough? x)  x (reduced-form x)))
 
 (sinus 30)
@@ -223,21 +224,21 @@ size
 (defn expt [b n]
   (if (= n 0) 1 (* b (expt b (- n 1)))))
 
-(expt 2 4)        
+(expt 2 4)
 
-(defn expt-linear [b n] 
+(defn expt-linear [b n]
   (defn expt-rec [b n acc]
     (if (= n 0) acc (expt-rec b (- n 1) (* b acc)) ))
   (expt-rec b n 1))
 
-(expt-linear 2 4)        
+(expt-linear 2 4)
 
 (defn expt-succ [b n]
-  (cond (= n 0) 1 
+  (cond (= n 0) 1
         (even? n) (square (expt-succ b (/ n 2)))
         true (* b (expt-succ b (- n 1)))))
 
-(expt-succ 2 4)        
+(expt-succ 2 4)
 
 (defn expt-succ-iter [b n]
   (defn expt-rec [b n acc]
@@ -251,8 +252,8 @@ size
 (expt-succ-iter 2 4)
 
 ; 1.17
-(defn mult-add [x y] 
-  (cond (or (= x 0) (= y 0)) 0 
+(defn mult-add [x y]
+  (cond (or (= x 0) (= y 0)) 0
         (= y 1) x
         true (+ x (mult-add x (- y 1))) ))
 
@@ -264,14 +265,40 @@ size
 (defn halve [x]
   (/ x 2))
 
-(defn fast-mult-add [x y]   
+(defn fast-mult-add [x y]
   (cond (or (= x 0) (= y 0)) 0
-        (= y 1) x  
         (even? y) (doub (fast-mult-add x (halve y)))
-        true (+ x (fast-mult-add x (- y 1))) )) 
-  
-(fast-mult-add 3 3)
-  
-        
-       
+        true (+ x (fast-mult-add x (- y 1))) ))
 
+(fast-mult-add 7 11)
+
+; 1.18
+(defn fast-iterative-mult-add [x y]
+  (defn recurs [x y acc]
+    (cond (= x 0) 0
+        (= y 0) acc
+        (even? y) (recurs (doub x) (halve y) acc)
+        true (recurs x (- y 1) (+ x acc)) ))
+    (recurs x y 0))
+
+(fast-iterative-mult-add 3 3)
+
+; 1.19
+(defn fib [n]
+  (defn fib-iter [a b p q i]
+    (cond (= i 0) b
+          (even? i) (fib-iter a b (+ (square p) (square q)) (+ (* 2 p q) (square q)) (/ i 2))
+          true (fib-iter (+ (* b q) (* a q) (* a p)) (+ (* b p ) (* a q)) p q (- i 1))))
+  (fib-iter 1 0 0 1 n))
+
+(fib 7)
+
+
+; 1.20
+(defn gcd [a b]
+  (if (= b 0) a (gcd b (rem a b))))
+
+(gcd 40 30)
+
+
+; 1.21

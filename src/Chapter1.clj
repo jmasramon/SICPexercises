@@ -1,4 +1,5 @@
-(ns Chapter1)
+(ns Chapter1
+ (:require [clojure.test :as test]))
 
 (+ 1 2)
 
@@ -302,3 +303,43 @@ size
 
 
 ; 1.21
+(rem 206 40)
+(rem 40 6)
+(rem 6 4)
+(rem 4 2)
+; 1.21      smallest divisor
+(defn divides? [a b]
+  (= (rem b a) 0))
+
+(test/is (= false (divides? 2 15)))
+(test/is (= true (divides? 3 15)))
+(test/is (= true (divides? 2 10)))
+
+(defn find-divisor [n test-divisor]
+  (cond (divides? test-divisor n) test-divisor
+        (> (square  test-divisor) n) n
+        true (find-divisor n (+ test-divisor 1))))
+
+(test/is (= (find-divisor 1 2) 1))
+(test/is (= (find-divisor 2 2) 2))
+(test/is (= (find-divisor 5 2) 5))
+(test/is (= (find-divisor 10 2) 2))
+(test/is (= (find-divisor 10 5) 5))
+
+(defn smallest-divisor [n]
+  (find-divisor n 2))
+
+(test/is (= (smallest-divisor 10) 2))
+
+(defn prime? [n]
+  (= (smallest-divisor n) n))
+
+(test/is (= (prime? 2) true))
+(test/is (= (prime? 3) true))
+(test/is (= (prime? 4) false))
+
+(smallest-divisor 199)
+(smallest-divisor 1999)
+(smallest-divisor 19999)
+
+; 1.22

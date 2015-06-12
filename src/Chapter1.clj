@@ -1,5 +1,6 @@
 (ns Chapter1
- (:require [clojure.test :as test]))
+ (:require [clojure.test :as test])
+ (:use clojure.pprint) )
 
 (+ 1 2)
 
@@ -343,3 +344,11 @@ size
 (smallest-divisor 19999)
 
 ; 1.22
+(System/nanoTime)
+
+(defn report-prime [elapsed-time]
+  (println "***")
+  (println elapsed-time))
+
+(let [out *out*]
+  (report-prime "12"))

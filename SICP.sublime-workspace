@@ -1,0 +1,1769 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"def",
+				"defn-"
+			],
+			[
+				"non",
+				"nonNegativeInt"
+			],
+			[
+				"doubl",
+				"double"
+			],
+			[
+				"next",
+				"nextInt"
+			],
+			[
+				"tra",
+				"traverseEither"
+			],
+			[
+				"get",
+				"getOrElse"
+			],
+			[
+				"condition",
+				"condition1"
+			],
+			[
+				"valid",
+				"validator"
+			],
+			[
+				"comment",
+				"comments"
+			],
+			[
+				"always",
+				"alwaysDoublingFunction"
+			],
+			[
+				"word",
+				"wordCountTuples〔variable〕"
+			],
+			[
+				"sort",
+				"sortedWords〔variable〕"
+			],
+			[
+				"dou",
+				"doubleAll"
+			],
+			[
+				"spl",
+				"splatBis〔function〕"
+			],
+			[
+				"doub",
+				"doubleSmallX"
+			],
+			[
+				"regist",
+				"registrationService"
+			],
+			[
+				"tb",
+				"tbt	toBeTruthy"
+			],
+			[
+				"td",
+				"tbd	toBeDefined"
+			],
+			[
+				"tbd",
+				"toBeDefined"
+			],
+			[
+				"mock",
+				"mockCatalogRepository"
+			],
+			[
+				"catalog",
+				"catalogRepository"
+			],
+			[
+				"catalo",
+				"catalogRepository"
+			],
+			[
+				"be",
+				"beforeeach	Before Each"
+			],
+			[
+				"valide",
+				"validSeparators"
+			],
+			[
+				"numbers",
+				"numbersString"
+			],
+			[
+				"numberS",
+				"numbersString"
+			],
+			[
+				"tobe",
+				"expect.to.be.an"
+			],
+			[
+				"exis",
+				"expect.to.exist"
+			],
+			[
+				"toe",
+				"expect.to.equal"
+			],
+			[
+				"exp",
+				"expect.to.equal"
+			],
+			[
+				"equal",
+				"expect.to.equal"
+			],
+			[
+				"equ",
+				"assert.equal"
+			],
+			[
+				"ass",
+				"assert.equal"
+			],
+			[
+				"eq",
+				"assert.equal"
+			],
+			[
+				"outline",
+				"outline-color"
+			],
+			[
+				"out",
+				"outline-width"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"paddi",
+				"padding-left"
+			],
+			[
+				"local",
+				"locallogin"
+			],
+			[
+				"new",
+				"newUser"
+			],
+			[
+				"cl",
+				"class=  (attribute)"
+			],
+			[
+				"htt",
+				"httpBackend"
+			],
+			[
+				"ht",
+				"httpBackend"
+			],
+			[
+				"reset",
+				"resetTabsTest"
+			],
+			[
+				"invs",
+				"investmentIndex"
+			],
+			[
+				"acquired",
+				"acquiredGroupedByAcquiree"
+			],
+			[
+				"hasAcqui",
+				"hasAcquiringCompany"
+			],
+			[
+				"direc",
+				"directCopetitorsByCountry"
+			],
+			[
+				"dead",
+				"deadCompetitorsByCountry"
+			],
+			[
+				"Escontr",
+				"EscontrollerCtrl.facetResult"
+			],
+			[
+				"tim",
+				"timeout.flush"
+			],
+			[
+				"time",
+				"timeout.flush"
+			],
+			[
+				"_",
+				"_Esclient_"
+			],
+			[
+				"scope.directCopetitors",
+				"scope.directCompetitorsCountryMarkersHtmlString"
+			],
+			[
+				"competitor",
+				"competitorsByCountry"
+			],
+			[
+				"Jso",
+				"JSON.stringify"
+			],
+			[
+				"to",
+				"toBe"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": ";;;;CODE FROM CHAPTER 1 OF STRUCTURE AND INTERPRETATION OF COMPUTER PROGRAMS\n\n;;; Examples from the book are commented out with ;: so that they\n;;;  are easy to find and so that they will be omitted if you evaluate a\n;;;  chunk of the file (programs with intervening examples) in Scheme.\n\n;;; BEWARE: Although the whole file can be loaded into Scheme,\n;;;  don't expect the programs to work if you do so.  For example,\n;;;  the redefinition of + in exercise 1.9 wreaks havoc with the\n;;;  last version of square defined here.\n\n\n;;;SECTION 1.1.1\n\n;; interpreter examples\n\n;: 486\n\n;: (+ 137 349)\n;: (- 1000 334)\n;: (* 5 99)\n;: (/ 10 5)\n;: (+ 2.7 10)\n\n;: (+ 21 35 12 7)\n;: (* 25 4 12)\n\n;: (+ (* 3 5) (- 10 6))\n\n;: (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))\n\n;: (+ (* 3\n;:       (+ (* 2 4)\n;:          (+ 3 5)))\n;:    (+ (- 10 7)\n;:       6))\n\n\n;;;SECTION 1.1.2\n\n;: (define size 2)\n;: size\n;: (* 5 size)\n\n;: (define pi 3.14159)\n;: (define radius 10)\n;: (* pi (* radius radius))\n;: (define circumference (* 2 pi radius))\n;: circumference\n\n\n;;;SECTION 1.1.3\n\n;: (* (+ 2 (* 4 6))\n;:    (+ 3 5 7))\n\n\n;;;SECTION 1.1.4\n\n(define (square x) (* x x))\n\n;: (square 21)\n;: (square (+ 2 5))\n;: (square (square 3))\n\n(define (sum-of-squares x y)\n  (+ (square x) (square y)))\n\n;: (sum-of-squares 3 4)\n\n(define (f a)\n  (sum-of-squares (+ a 1) (* a 2)))\n\n;: (f 5)\n\n\n;;;SECTION 1.1.5\n\n;: (f 5)\n;: (sum-of-squares (+ 5 1) (* 5 2))\n;: (+ (square 6) (square 10))\n;: (+ (* 6 6) (* 10 10))\n;: (+ 36 100)\n\n;: (f 5)\n;: (sum-of-squares (+ 5 1) (* 5 2))\n;: (+    (square (+ 5 1))      (square (* 5 2))  )\n;: (+    (* (+ 5 1) (+ 5 1))   (* (* 5 2) (* 5 2)))\n;: (+         (* 6 6)             (* 10 10))\n;: (+           36                   100)\n;:                     136\n\n\n;;;SECTION 1.1.6\n\n(define (abs x)\n  (cond ((> x 0) x)\n        ((= x 0) 0)\n        ((< x 0) (- x))))\n\n(define (abs x)\n  (cond ((< x 0) (- x))\n        (else x)))\n\n(define (abs x)\n  (if (< x 0)\n      (- x)\n      x))\n\n;: (and (> x 5) (< x 10))\n\n(define (>= x y)\n  (or (> x y) (= x y)))\n\n(define (>= x y)\n  (not (< x y)))\n\n\n;;EXERCISE 1.1\n;: 10\n\n;: (+ 5 3 4)\n\n;: (- 9 1)\n\n;: (/ 6 2)\n\n;: (+ (* 2 4) (- 4 6))\n\n;: (define a 3)\n\n;: (define b (+ a 1))\n\n;: (+ a b (* a b))\n\n;: (= a b)\n\n;: (if (and (> b a) (< b (* a b)))\n;:     b \n;:     a)\n\n;: (cond ((= a 4) 6)\n;:       ((= b 4) (+ 6 7 a))\n;:       (else 25))\n\n;: (+ 2 (if (> b a) b a))\n\n;: (* (cond ((> a b) a)\n;: 	 ((< a b) b)\n;: 	 (else -1))\n;:    (+ a 1))\n\n;;EXERCISE 1.4\n(define (a-plus-abs-b a b)\n  ((if (> b 0) + -) a b))\n\n;;EXERCISE 1.5\n(define (p) (p))\n\n(define (test x y)\n  (if (= x 0)\n      0\n      y))\n\n;: (test 0 (p))\n\n\n;;;SECTION 1.1.7\n\n(define (sqrt-iter guess x)\n  (if (good-enough? guess x)\n      guess\n      (sqrt-iter (improve guess x)\n                 x)))\n\n(define (improve guess x)\n  (average guess (/ x guess)))\n\n(define (average x y)\n  (/ (+ x y) 2))\n\n(define (good-enough? guess x)\n  (< (abs (- (square guess) x)) 0.001))\n\n(define (sqrt x)\n  (sqrt-iter 1.0 x))\n\n\n;: (sqrt 9)\n;: (sqrt (+ 100 37))\n;: (sqrt (+ (sqrt 2) (sqrt 3)))\n;: (square (sqrt 1000))\n\n\n;;EXERCISE 1.6\n(define (new-if predicate then-clause else-clause)\n  (cond (predicate then-clause)\n        (else else-clause)))\n\n;: (new-if (= 2 3) 0 5)\n\n;: (new-if (= 1 1) 0 5)\n\n(define (sqrt-iter2 guess x)\n  (new-if (good-enough? guess x)\n          guess\n          (sqrt-iter (improve guess x)\n                     x)))\n\n\n;;;SECTION 1.1.8\n\n(define (square x) (* x x))\n\n(define (square x) \n  (exp (double (log x))))\n\n(define (double x) (+ x x))\n\n\n;; As in 1.1.7\n(define (sqrt x)\n  (sqrt-iter 1.0 x))\n\n(define (sqrt-iter guess x)\n  (if (good-enough? guess x)\n      guess\n      (sqrt-iter (improve guess x) x)))\n\n(define (good-enough? guess x)\n  (< (abs (- (square guess) x)) 0.001))\n\n(define (improve guess x)\n  (average guess (/ x guess)))\n\n\n;; Block-structured\n(define (sqrt x)\n  (define (good-enough? guess x)\n    (< (abs (- (square guess) x)) 0.001))\n  (define (improve guess x)\n    (average guess (/ x guess)))\n  (define (sqrt-iter guess x)\n    (if (good-enough? guess x)\n        guess\n        (sqrt-iter (improve guess x) x)))\n  (sqrt-iter 1.0 x))\n\n;; Taking advantage of lexical scoping\n(define (sqrt x)\n  (define (good-enough? guess)\n    (< (abs (- (square guess) x)) 0.001))\n  (define (improve guess)\n    (average guess (/ x guess)))\n  (define (sqrt-iter guess)\n    (if (good-enough? guess)\n        guess\n        (sqrt-iter (improve guess))))\n  (sqrt-iter 1.0))\n\n;;;SECTION 1.2.1\n\n;; Recursive\n\n(define (factorial n)\n  (if (= n 1)\n      1\n      (* n (factorial (- n 1)))))\n\n\n;; Iterative\n\n(define (factorial n)\n  (fact-iter 1 1 n))\n\n(define (fact-iter product counter max-count)\n  (if (> counter max-count)\n      product\n      (fact-iter (* counter product)\n                 (+ counter 1)\n                 max-count)))\n\n;; Iterative, block-structured (from footnote)\n(define (factorial n)\n  (define (iter product counter)\n    (if (> counter n)\n        product\n        (iter (* counter product)\n              (+ counter 1))))\n  (iter 1 1))\n\n\n;;EXERCISE 1.9\n(define (+ a b)\n  (if (= a 0)\n      b\n      (inc (+ (dec a) b))))\n\n(define (+ a b)\n  (if (= a 0)\n      b\n      (+ (dec a) (inc b))))\n\n;;EXERCISE 1.10\n(define (A x y)\n  (cond ((= y 0) 0)\n        ((= x 0) (* 2 y))\n        ((= y 1) 2)\n        (else (A (- x 1)\n                 (A x (- y 1))))))\n\n;: (A 1 10)\n\n;: (A 2 4)\n\n;: (A 3 3)\n\n(define (f n) (A 0 n))\n\n(define (g n) (A 1 n))\n\n(define (h n) (A 2 n))\n\n(define (k n) (* 5 n n))\n\n\n;;;SECTION 1.2.2\n\n;; Recursive\n\n(define (fib n)\n  (cond ((= n 0) 0)\n        ((= n 1) 1)\n        (else (+ (fib (- n 1))\n                 (fib (- n 2))))))\n\n;; Iterative\n\n(define (fib n)\n  (fib-iter 1 0 n))\n\n(define (fib-iter a b count)\n  (if (= count 0)\n      b\n      (fib-iter (+ a b) a (- count 1))))\n\n\n;; Counting change\n\n(define (count-change amount)\n  (cc amount 5))\n\n(define (cc amount kinds-of-coins)\n  (cond ((= amount 0) 1)\n        ((or (< amount 0) (= kinds-of-coins 0)) 0)\n        (else (+ (cc amount\n                     (- kinds-of-coins 1))\n                 (cc (- amount\n                        (first-denomination kinds-of-coins))\n                     kinds-of-coins)))))\n\n(define (first-denomination kinds-of-coins)\n  (cond ((= kinds-of-coins 1) 1)\n        ((= kinds-of-coins 2) 5)\n        ((= kinds-of-coins 3) 10)\n        ((= kinds-of-coins 4) 25)\n        ((= kinds-of-coins 5) 50)))\n\n;: (count-change 100)\n\n\n;;;SECTION 1.2.3\n\n;;EXERCISE 1.15\n(define (cube x) (* x x x))\n\n(define (p x) (- (* 3 x) (* 4 (cube x))))\n\n(define (sine angle)\n   (if (not (> (abs angle) 0.1))\n       angle\n       (p (sine (/ angle 3.0)))))\n\n\n;;;SECTION 1.2.4\n\n;; Linear recursion\n(define (expt b n)\n  (if (= n 0)\n      1\n      (* b (expt b (- n 1)))))\n\n\n;; Linear iteration\n(define (expt b n)\n  (expt-iter b n 1))\n\n(define (expt-iter b counter product)\n  (if (= counter 0)\n      product\n      (expt-iter b\n                (- counter 1)\n                (* b product)))) \n\n;; Logarithmic iteration\n(define (fast-expt b n)\n  (cond ((= n 0) 1)\n        ((even? n) (square (fast-expt b (/ n 2))))\n        (else (* b (fast-expt b (- n 1))))))\n\n(define (even? n)\n  (= (remainder n 2) 0))\n\n\n;;EXERCISE 1.17\n(define (* a b)\n  (if (= b 0)\n      0\n      (+ a (* a (- b 1)))))\n\n;;EXERCISE 1.19\n(define (fib n)\n  (fib-iter 1 0 0 1 n))\n\n(define (fib-iter a b p q count)\n  (cond ((= count 0) b)\n        ((even? count)\n         (fib-iter a\n                   b\n                   ??FILL-THIS-IN?? ; compute p'\n                   ??FILL-THIS-IN?? ; compute q'\n                   (/ count 2)))\n        (else (fib-iter (+ (* b q) (* a q) (* a p))\n                        (+ (* b p) (* a q))\n                        p\n                        q\n                        (- count 1)))))\n\n\n;;;SECTION 1.2.5\n\n(define (gcd a b)\n  (if (= b 0)\n      a\n      (gcd b (remainder a b))))\n\n\n;;;SECTION 1.2.6\n\n;; prime?\n\n(define (smallest-divisor n)\n  (find-divisor n 2))\n\n(define (find-divisor n test-divisor)\n  (cond ((> (square test-divisor) n) n)\n        ((divides? test-divisor n) test-divisor)\n        (else (find-divisor n (+ test-divisor 1)))))\n\n(define (divides? a b)\n  (= (remainder b a) 0))\n\n(define (prime? n)\n  (= n (smallest-divisor n)))\n\n\n;; fast-prime?\n\n(define (expmod base exp m)\n  (cond ((= exp 0) 1)\n        ((even? exp)\n         (remainder (square (expmod base (/ exp 2) m))\n                    m))\n        (else\n         (remainder (* base (expmod base (- exp 1) m))\n                    m))))        \n\n(define (fermat-test n)\n  (define (try-it a)\n    (= (expmod a n n) a))\n  (try-it (+ 1 (random (- n 1)))))\n\n(define (fast-prime? n times)\n  (cond ((= times 0) true)\n        ((fermat-test n) (fast-prime? n (- times 1)))\n        (else false)))\n\n\n;;EXERCISE 1.22\n(define (timed-prime-test n)\n  (newline)\n  (display n)\n  (start-prime-test n (runtime)))\n\n(define (start-prime-test n start-time)\n  (if (prime? n)\n      (report-prime (- (runtime) start-time))))\n\n(define (report-prime elapsed-time)\n  (display \" *** \")\n  (display elapsed-time))\n\n;;EXERCISE 1.25\n(define (expmod base exp m)\n  (remainder (fast-expt base exp) m))\n\n;;EXERCISE 1.26\n(define (expmod base exp m)\n  (cond ((= exp 0) 1)\n        ((even? exp)\n         (remainder (* (expmod base (/ exp 2) m)\n                       (expmod base (/ exp 2) m))\n                    m))\n        (else\n         (remainder (* base (expmod base (- exp 1) m))\n                    m))))\n\n;;;SECTION 1.3\n\n(define (cube x) (* x x x))\n\n;;;SECTION 1.3.1\n\n(define (sum-integers a b)\n  (if (> a b)\n      0\n      (+ a (sum-integers (+ a 1) b))))\n\n(define (sum-cubes a b)\n  (if (> a b)\n      0\n      (+ (cube a) (sum-cubes (+ a 1) b))))\n\n(define (pi-sum a b)\n  (if (> a b)\n      0\n      (+ (/ 1.0 (* a (+ a 2))) (pi-sum (+ a 4) b))))\n\n(define (sum term a next b)\n  (if (> a b)\n      0\n      (+ (term a)\n         (sum term (next a) next b))))\n\n\n;; Using sum\n\n(define (inc n) (+ n 1))\n\n(define (sum-cubes a b)\n  (sum cube a inc b))\n\n;: (sum-cubes 1 10)\n\n\n(define (identity x) x)\n\n(define (sum-integers a b)\n  (sum identity a inc b))\n\n;: (sum-integers 1 10)\n\n\n(define (pi-sum a b)\n  (define (pi-term x)\n    (/ 1.0 (* x (+ x 2))))\n  (define (pi-next x)\n    (+ x 4))\n  (sum pi-term a pi-next b))\n\n;: (* 8 (pi-sum 1 1000))\n\n\n(define (integral f a b dx)\n  (define (add-dx x) (+ x dx))\n  (* (sum f (+ a (/ dx 2)) add-dx b)\n     dx))\n\n;: (integral cube 0 1 0.01)\n\n;: (integral cube 0 1 0.001)\n\n\n;;EXERCISE 1.32\n;: (accumulate combiner null-value term a next b)\n\n;;;SECTION 1.3.2\n\n(define (pi-sum a b)\n  (sum (lambda (x) (/ 1.0 (* x (+ x 2))))\n       a\n       (lambda (x) (+ x 4))\n       b))\n\n(define (integral f a b dx)\n  (* (sum f\n          (+ a (/ dx 2.0))\n          (lambda (x) (+ x dx))\n          b)\n     dx))\n\n(define (plus4 x) (+ x 4))\n\n(define plus4 (lambda (x) (+ x 4)))\n\n;: ((lambda (x y z) (+ x y (square z))) 1 2 3)\n\n\n;; Using let\n\n(define (f x y)\n  (define (f-helper a b)\n    (+ (* x (square a))\n       (* y b)\n       (* a b)))\n  (f-helper (+ 1 (* x y)) \n            (- 1 y)))\n\n(define (f x y)\n  ((lambda (a b)\n     (+ (* x (square a))\n        (* y b)\n        (* a b)))\n   (+ 1 (* x y))\n   (- 1 y)))\n\n(define (f x y)\n  (let ((a (+ 1 (* x y)))\n        (b (- 1 y)))\n    (+ (* x (square a))\n       (* y b)\n       (* a b))))\n\n;: (+ (let ((x 3))\n;:      (+ x (* x 10)))\n;:    x)\n\n;: (let ((x 3)\n;:       (y (+ x 2)))\n;:   (* x y))\n\n(define (f x y)\n  (define a (+ 1 (* x y)))\n  (define b (- 1 y))\n  (+ (* x (square a))\n     (* y b)\n     (* a b)))\n\n\n;;EXERCISE 1.34\n(define (f g)\n  (g 2))\n\n;: (f square)\n\n;: (f (lambda (z) (* z (+ z 1))))\n\n\n;;;SECTION 1.3.3\n\n;; Half-interval method\n\n(define (search f neg-point pos-point)\n  (let ((midpoint (average neg-point pos-point)))\n    (if (close-enough? neg-point pos-point)\n        midpoint\n        (let ((test-value (f midpoint)))\n          (cond ((positive? test-value)\n                 (search f neg-point midpoint))\n                ((negative? test-value)\n                 (search f midpoint pos-point))\n                (else midpoint))))))\n\n(define (close-enough? x y)\n  (< (abs (- x y)) 0.001))\n\n(define (half-interval-method f a b)\n  (let ((a-value (f a))\n        (b-value (f b)))\n    (cond ((and (negative? a-value) (positive? b-value))\n           (search f a b))\n          ((and (negative? b-value) (positive? a-value))\n           (search f b a))\n          (else\n           (error \"Values are not of opposite sign\" a b)))))\n\n\n;: (half-interval-method sin 2.0 4.0)\n\n;: (half-interval-method (lambda (x) (- (* x x x) (* 2 x) 3))\n;:                       1.0\n;:                       2.0)\n\n\n;; Fixed points\n\n(define tolerance 0.00001)\n\n(define (fixed-point f first-guess)\n  (define (close-enough? v1 v2)\n    (< (abs (- v1 v2)) tolerance))\n  (define (try guess)\n    (let ((next (f guess)))\n      (if (close-enough? guess next)\n          next\n          (try next))))\n  (try first-guess))\n\n\n;: (fixed-point cos 1.0)\n\n;: (fixed-point (lambda (y) (+ (sin y) (cos y)))\n;:              1.0)\n\n\n(define (sqrt x)\n  (fixed-point (lambda (y) (/ x y))\n               1.0))\n\n(define (sqrt x)\n  (fixed-point (lambda (y) (average y (/ x y)))\n               1.0))\n\n\n;;EXERCISE 1.37\n;: (cont-frac (lambda (i) 1.0)\n;:            (lambda (i) 1.0)\n;:            k)\n\n\n;;;SECTION 1.3.4\n\n(define (average-damp f)\n  (lambda (x) (average x (f x))))\n\n;: ((average-damp square) 10)\n\n(define (sqrt x)\n  (fixed-point (average-damp (lambda (y) (/ x y)))\n               1.0))\n\n(define (cube-root x)\n  (fixed-point (average-damp (lambda (y) (/ x (square y))))\n               1.0))\n\n\n;; Newton's method\n\n(define (deriv g)\n  (lambda (x)\n    (/ (- (g (+ x dx)) (g x))\n       dx)))\n(define dx 0.00001)\n\n\n(define (cube x) (* x x x))\n\n;: ((deriv cube) 5)\n\n(define (newton-transform g)\n  (lambda (x)\n    (- x (/ (g x) ((deriv g) x)))))\n\n(define (newtons-method g guess)\n  (fixed-point (newton-transform g) guess))\n\n\n(define (sqrt x)\n  (newtons-method (lambda (y) (- (square y) x))\n                  1.0))\n\n\n;; Fixed point of transformed function\n\n(define (fixed-point-of-transform g transform guess)\n  (fixed-point (transform g) guess))\n\n(define (sqrt x)\n  (fixed-point-of-transform (lambda (y) (/ x y))\n                            average-damp\n                            1.0))\n\n(define (sqrt x)\n  (fixed-point-of-transform (lambda (y) (- (square y) x))\n                            newton-transform\n                            1.0))\n\n\n;;EXERCISE 1.40\n;: (newtons-method (cubic a b c) 1)\n\n\n;;EXERCISE 1.41\n;: (((double (double double)) inc) 5)\n\n\n;;EXERCISE 1.42\n;: ((compose square inc) 6)\n\n\n;;EXERCISE 1.43\n;: ((repeated square 2) 5)\n\n",
+			"file": "/Volumes/DADES/downloads/ch1.scm",
+			"file_size": 14511,
+			"file_write_time": 1433879063000000,
+			"settings":
+			{
+				"buffer_size": 14513,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "project.clj",
+			"settings":
+			{
+				"buffer_size": 113,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "nREPL server started on port 49754 on host 127.0.0.1 - nrepl://127.0.0.1:49754\nREPL-y 0.3.5, nREPL 0.2.6\nClojure 1.6.0\nJava HotSpot(TM) 64-Bit Server VM 1.7.0_71-b14\n    Docs: (doc function-name-here)\n          (find-doc \"part-of-name-here\")\n  Source: (source function-name-here)\n Javadoc: (javadoc java-object-or-class-here)\n    Exit: Control+D or (exit) or (quit)\n Results: Stored in vars *1, *2, *3, an exception in *e\n\nuser=>  ",
+			"settings":
+			{
+				"buffer_size": 431,
+				"line_ending": "Unix",
+				"name": "*REPL* [clojure]",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "Packages/User/node.sublime-build",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packad",
+				"Package Control: Disable Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"subli",
+				"SublimeREPL: Clojure"
+			],
+			[
+				"packaupda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"ocr",
+				"Origami: Create Pane on the Right"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"oridr",
+				"Origami: Destroy Pane on the Right"
+			],
+			[
+				"replnode",
+				"SublimeREPL: Node"
+			],
+			[
+				"repl",
+				"SublimeREPL: Haskell"
+			],
+			[
+				"replno",
+				"SublimeREPL: Node"
+			],
+			[
+				"odpr",
+				"Origami: Destroy Pane on the Right"
+			],
+			[
+				"cr",
+				"Origami: Create Pane with File on the Right"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"enabe",
+				"SublimeCodeIntel: Enable Plugin"
+			],
+			[
+				"q",
+				"BracketHighlighter: Swap Quotes"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"quot",
+				"BracketHighlighter: Swap Quotes"
+			],
+			[
+				"for",
+				"Format: Javascript"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			]
+		],
+		"width": 521.0
+	},
+	"console":
+	{
+		"height": 215.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/source/fpinscala/answers/src/main/scala/fpinscala/laziness/Stream.scala",
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/chapter2.scala.doNotCompile",
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/source/fpinscala/answers/src/main/scala/fpinscala/datastructures/Tree.scala",
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/source/fpinscala/answers/src/main/scala/fpinscala/errorhandling/Either.scala",
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/source/fpinscala/answers/src/main/scala/fpinscala/errorhandling/Option.scala",
+		"/Volumes/home/jmasramon/dev/scala/FunctionalProgrammingInScala/source/fpinscala/exercises/src/main/scala/fpinscala/errorhandling/Option.scala",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Volumes/DADES/downloads/20150324/APP1/http-acc.log",
+		"/Volumes/DADES/downloads/20150324/WEB1/sessions.log",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/HighlightWords/HighlightWords.sublime-settings",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/User/HighlightWords.sublime-settings",
+		"/Volumes/home/jmasramon/dev/js/tryThings/practiceUnderscore.js",
+		"/Volumes/home/jmasramon/dev/js/tryThings/functional.js",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/User/SublimeREPL.sublime-settings",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/User/node.sublime-build",
+		"/Volumes/home/jmasramon/dev/js/tryThings/Gruntfile.js",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/Volumes/home/jmasramon/Library/Application Support/Sublime Text 2/Packages/SublimeREPL/config/NodeJS/repl.js",
+		"/Volumes/home/jmasramon/dev/haskell/haskellFunctions.hs",
+		"/Volumes/home/jmasramon/dev/logstash-1.4.2/logstash-apache.conf",
+		"/Volumes/home/jmasramon/dev/kibana-4/kibana/bower.json",
+		"/Volumes/home/jmasramon/dev/kibana-4/kibana/tasks/build.js",
+		"/Volumes/home/jmasramon/dev/kibana-4/kibana/tasks/get_build_props.js",
+		"/Volumes/home/jmasramon/dev/kibana-4/kibana/tasks/config/clean.js",
+		"/Volumes/DADES/downloads/usask_access_log.log",
+		"/Volumes/DADES/downloads/access.log",
+		"/Volumes/home/jmasramon/dev/elasticsearch-1.4.1/config/elasticsearch.yml",
+		"/Volumes/home/jmasramon/dev/elasticsearch-1.4.3/config/elasticsearch.yml",
+		"/Volumes/home/jmasramon/dev/logstash-1.4.2/logstash-apache-stdin.conf",
+		"/var/folders/ml/1nydml0n57xbjzd_5bw91wxm0000gn/T/bash-fc-1425214678",
+		"/Volumes/home/jmasramon/dev/scheme/trying_things.lisp",
+		"/Volumes/DADES/downloads/Química3.csv",
+		"/Volumes/home/jmasramon/Vagrant/precise64/Vagrantfile",
+		"/Volumes/DADES/downloads/logstash-1.4.2/twitter.conf",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/test/wizard/registration-service-specs.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/test/catalog/catalog-controller-specs.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/catalog/catalog-repository.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/catalog/catalog.html",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/catalog/catalog-controller.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/wizard/wizard-repository.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/wizard/registration-service.js",
+		"/Users/jmasramon/dev/js/angular-hogwarts-tdd-kata/app/index.html",
+		"/Users/jmasramon/dev/js/tryThings/test/trythings_test.js",
+		"/Users/jmasramon/dev/js/stringCalculator/Gruntfile.js",
+		"/Users/jmasramon/dev/js/tryThingsOnBrowser/app/scripts/main.js",
+		"/Users/jmasramon/dev/js/tryThingsOnBrowser/test/spec/test.js",
+		"/Users/jmasramon/dev/js/tryThingsOnBrowser/Gruntfile.js",
+		"/Users/jmasramon/dev/js/tryThings/Gruntfile.js",
+		"/Users/jmasramon/Library/Application Support/Sublime Text 2/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/Users/jmasramon/dev/js/tryThings/lib/trythings.js",
+		"/Users/jmasramon/Documents/prova.html",
+		"/Users/jmasramon/incubio/test/spec/services/competitorsdatagetter.js",
+		"/Users/jmasramon/incubio/serverSide/nodejs/easy-node-authentication/app/routes.js",
+		"/Users/jmasramon/Incubio/app/scripts/controllers/main.js",
+		"/Users/jmasramon/dev/cursera01/build.sbt",
+		"/Users/jmasramon/Incubio/serverSide/nodejs/easy-node-authentication/config/passport.js",
+		"/Users/jmasramon/gdc.py",
+		"/Users/jmasramon/gdc.js",
+		"/Users/jmasramon/prova.js",
+		"/Users/jmasramon/Documents/javascriptExamResults.html",
+		"/Users/jmasramon/Incubio/test/spec/services/competitorsdatagetter.js",
+		"/Users/jmasramon/incubio/app/views/dstable_list_result.html",
+		"/Users/jmasramon/Incubio/app/views/resultstable.html",
+		"/Users/jmasramon/incubio/app/views/dashboard.html",
+		"/Users/jmasramon/incubio/app/scripts/app.js",
+		"/Users/jmasramon/incubio/app/views/competitors/competitors.html",
+		"/Users/jmasramon/incubio/app/views/dstable.html",
+		"/Users/jmasramon/incubio/app/views/failedtab.html",
+		"/Users/jmasramon/incubio/app/views/dstablefilter.html",
+		"/Users/jmasramon/incubio/app/views/competitors/fundingsgraphs.html",
+		"/Users/jmasramon/incubio/app/scripts/directives/customgraph.js",
+		"/Users/jmasramon/incubio/app/views/customgraph.html",
+		"/Users/jmasramon/incubio/app/styles/style.css",
+		"/Users/jmasramon/incubio/app/style-changes.css",
+		"/Users/jmasramon/incubio/app/views/mainmenu.html",
+		"/Users/jmasramon/incubio/app/views/tabularresult.html",
+		"/Users/jmasramon/incubio/app/views/breadcrumb.html",
+		"/Users/jmasramon/incubio/app/views/market.html",
+		"/Users/jmasramon/incubio/app/views/competitors/market.html",
+		"/Users/jmasramon/incubio/app/views/tabularresultheader.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetstats.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetpie.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetmap.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetlist.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetchart.html",
+		"/Users/jmasramon/Incubio/app/views/widgets/dswidgetbars.html",
+		"/Users/jmasramon/Incubio/app/views/tabularresult.html",
+		"/Users/jmasramon/Incubio/app/views/smallsearchcontrols.html",
+		"/Users/jmasramon/Incubio/app/views/searchbutton.html",
+		"/Users/jmasramon/Incubio/app/views/market.html",
+		"/Users/jmasramon/Incubio/app/views/main.html",
+		"/Users/jmasramon/Incubio/app/views/fundingpersoncardbox.html",
+		"/Users/jmasramon/Incubio/app/views/fundingfinancialorgcardbox.html",
+		"/Users/jmasramon/Incubio/app/views/fundingcompanydetailedresult.html",
+		"/Users/jmasramon/Incubio/app/views/fundingcompanycardbox.html",
+		"/Users/jmasramon/Incubio/app/views/fundingcompanieslist.html",
+		"/Users/jmasramon/Incubio/app/views/funding.html",
+		"/Users/jmasramon/Incubio/app/views/feedbackmodal.html",
+		"/Users/jmasramon/Incubio/app/views/failedtab.html",
+		"/Users/jmasramon/Incubio/app/views/failedheader.html",
+		"/Users/jmasramon/Incubio/app/views/dstableresults.html",
+		"/Users/jmasramon/Incubio/app/views/dstablefilter.html",
+		"/Users/jmasramon/Incubio/app/views/dstable_card_result.html",
+		"/Users/jmasramon/Incubio/app/views/dropdowncontrol.html",
+		"/Users/jmasramon/Incubio/app/views/detailedresult.html",
+		"/Users/jmasramon/Incubio/app/views/customgraph.html",
+		"/Users/jmasramon/Incubio/app/views/countryselector.html",
+		"/Users/jmasramon/Incubio/app/views/competitorsmap.html",
+		"/Users/jmasramon/Incubio/app/views/competitors/market.html",
+		"/Users/jmasramon/Incubio/app/views/competitors/general.html",
+		"/Users/jmasramon/Incubio/app/views/competitors/fundingsgraphs.html",
+		"/Users/jmasramon/Incubio/app/views/competitors/competitors.html",
+		"/Users/jmasramon/Incubio/app/views/competitors/acquisitionsgraphs.html",
+		"/Users/jmasramon/Incubio/app/views/breadcrumb.html",
+		"/Users/jmasramon/Incubio/app/views/badselectionalerts.html",
+		"/Users/jmasramon/Incubio/app/views/acquiringcompanydetailedresult.html",
+		"/Users/jmasramon/Incubio/app/views/acquiringcompanycardbox.html",
+		"/Users/jmasramon/Incubio/app/views/acquiringcompanieslist.html",
+		"/Users/jmasramon/Incubio/app/views/acquiring.html",
+		"/Users/jmasramon/incubio/app/index.html",
+		"/Users/jmasramon/incubio/app/scripts/controllers/main.js",
+		"/Users/jmasramon/incubio/crawlers/app.js",
+		"/Users/jmasramon/incubio/serverSide/nodejs/easy-node-authentication/views/login.ejs",
+		"/Users/jmasramon/incubio/serverSide/nodejs/easy-node-authentication/views/index.ejs",
+		"/Users/jmasramon/incubio/app/scripts/services/shareddatarepository.js",
+		"/Users/jmasramon/incubio/serverSide/nodejs/easy-node-authentication/server.js",
+		"/Users/jmasramon/incubio/serverSide/nodejs/easy-node-authentication/views/signup.ejs",
+		"/Users/jmasramon/incubio/test/spec/services/shareddatarepository.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Volumes/home/jmasramon/dev/kibana-4/kibana/tasks",
+			"",
+			"/Users/jmasramon/Incubio/serverSide, /Users/jmasramon/Incubio/app/scripts, /Users/jmasramon/Incubio/app/views, /Users/jmasramon/Incubio/test, -*/node_modules/*",
+			"/Users/jmasramon/Incubio/app/scripts, /Users/jmasramon/Incubio/app/views, /Users/jmasramon/Incubio/test, -*/node_modules/*",
+			"/Users/jmasramon/Incubio/serverSide/nodejs/easy-node-authentication, -*/node_modules/*",
+			"/Users/jmasramon/Incubio/serverSide/nodejs/easy-node-authentication",
+			"/Users/jmasramon/Incubio/app/scripts,/Users/jmasramon/Incubio/app/views,/Users/jmasramon/Incubio/test,-*.gif,-*.png,-*.bmp,",
+			"/Users/jmasramon/Incubio/app/scripts,/Users/jmasramon/Incubio/test,-*.gif,-*.png,-*.bmp,",
+			"/Users/jmasramon/Develop/datosfera/app/scripts,/Users/jmasramon/Develop/datosfera/test,-*.gif,-*.png,-*.bmp,",
+			"/Users/jmasramon/Develop/datosfera,-/Users/jmasramon/Develop/datosfera/app/bower_components/*.*,-/Users/jmasramon/Develop/datosfera/node_modules/*.*,-/Users/jmasramon/Develop/datosfera/coverage/*.*,-/Users/jmasramon/Develop/datosfera/.idea/*.*",
+			"/Users/jmasramon/Develop/datosfera,-/Users/jmasramon/Develop/datosfera/app/bower_components/*.*,-/Users/jmasramon/Develop/datosfera/node_modules/*.*,-/Users/jmasramon/Develop/datosfera/coverage/*.*",
+			"/Users/jmasramon/Develop/datosfera,-/Users/jmasramon/Develop/datosfera/app/bower_components/*.*,-/Users/jmasramon/Develop/datosfera/node_modules/*.*",
+			"/Users/jmasramon/Develop/datosfera,-/Users/jmasramon/Develop/datosfera/app/bower_components/*.*",
+			"/Users/jmasramon/Develop/datosfera",
+			"*.as",
+			"*.as,/Users/jmasramon/tmp/repositorisMyDocumenta/flex/3.0/Flex_Project/src",
+			"/Users/jmasramon/tmp/repositorisMyDocumenta/www/www.documenta.cat.new,*.as",
+			"/Users/jmasramon/tmp/repositorisMyDocumenta/www/www.documenta.cat.new",
+			"*.as ,*.mxml,/Users/jmasramon/tmp/repositorisMyDocumenta/www/www.documenta.cat.new",
+			"*.as ,*.mxml",
+			"*.as ",
+			"*.as; *.mxml",
+			"*.as *.mxml",
+			"*.as",
+			"*.*",
+			"*.as",
+			"*.php",
+			"",
+			"*.rb",
+			"",
+			"*.rb",
+			"",
+			"/Users/jmasramon/Develop/mydocumenta/devops/chef/chef-repo",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"both",
+			"randIntDouble",
+			"->",
+			"Some",
+			"cons",
+			"def",
+			"cons",
+			"empty",
+			"Stream.cons( 1, Stream.cons( 2 , Stream.cons( 3, Stream.empty)))",
+			"Cons",
+			"Some(",
+			"get",
+			"”",
+			"\n",
+			"checkedSqr",
+			"command",
+			"sqrPreconditions(uncheckedSqr ,",
+			"zero",
+			"complement",
+			"validator",
+			"mapcat",
+			"isValid",
+			"mapcat",
+			"mapCat",
+			"isValid",
+			",",
+			"console.log(",
+			"construct",
+			"int",
+			"city,",
+			"city",
+			"key",
+			"existy",
+			"cat",
+			"construct",
+			".....",
+			"....",
+			"...",
+			".",
+			"watch",
+			"'",
+			"apache",
+			"copy",
+			"copy:kibana",
+			"load-grunt-config",
+			"upcnum",
+			"upclines",
+			",",
+			";",
+			", ",
+			",",
+			"affinities, service usage, interaction preferences, product take-up, all sorts of lifetime value metrics,",
+			"{",
+			"[*]",
+			"[list]",
+			"e2e",
+			"protractor",
+			"CatalogController",
+			"catalogRepository",
+			"catalogData",
+			"get",
+			"catalogRepository",
+			"function() {\n                stringcalculator.add",
+			"getExceptionThrowingFunction",
+			"addEachOperand",
+			"console",
+			"validSeparators",
+			"extractMultipleDelimiters",
+			"split",
+			"thereIsMultipleDelimiter",
+			"\\n",
+			"ons",
+			"vs",
+			"argumentsAreEmpty",
+			"var",
+			"anObj",
+			"mocha",
+			"mocah",
+			"report",
+			"repor",
+			"mocha",
+			"chai",
+			"report",
+			"jshint",
+			"test",
+			"jshintç",
+			"oatmeal",
+			"setTokenCookie",
+			"done",
+			"deleteUser",
+			"found and removed",
+			"Ignoring the signup",
+			"ignoring the sign up",
+			"seach direct competitor data on elasticsearch",
+			"100, 154, 0",
+			"filter_sort",
+			"widgetCategory",
+			"company-card",
+			"navbar",
+			"nav-bar",
+			"row|col-",
+			"row|col",
+			"less",
+			"link-color",
+			"@link-color",
+			"bootstrap",
+			"Shareddatarepository",
+			"$scope.token",
+			"$cookies.token",
+			"seach direct competitor data on elasticsearch",
+			"render",
+			"parse",
+			"flash",
+			"req.flash",
+			"removed",
+			"if (!req.user)",
+			"process",
+			"userSchema",
+			"plugins",
+			"h3",
+			"png",
+			"jpg",
+			"resetCompetitorsSubTabs",
+			"4",
+			"console.log",
+			"acquisitionsTabs",
+			"fundingTabs",
+			"tabs"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"this.hiddenMapsCenter",
+			"this.firstMapCenter",
+			"},",
+			"",
+			"\\n",
+			"$this->debugLog(100);",
+			"this->debugLog(100);",
+			"debugLog",
+			"debugLog(100);",
+			" ",
+			"",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Volumes/DADES/downloads/ch1.scm",
+					"settings":
+					{
+						"buffer_size": 14513,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2512,
+								2512
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Lisp/Lisp.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2413.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "project.clj",
+					"settings":
+					{
+						"buffer_size": 113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"incomplete_sync": null,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Clojure/Clojure.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"settings":
+					{
+						"buffer_size": 431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								431,
+								431
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"auto_complete": true,
+							"auto_indent": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"detect_indentation": false,
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"gutter": false,
+							"history_arrows": true,
+							"incomplete_sync": null,
+							"indent_subsequent_lines": false,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"devel": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"line_numbers": false,
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"remote_loading": false,
+							"repl": true,
+							"repl_external_id": "clojure",
+							"repl_id": "ac5e4960e7cc4cb2bcf7590adfcde643",
+							"repl_restart_args":
+							{
+								"cmd":
+								{
+									"linux":
+									[
+										"lein",
+										"repl"
+									],
+									"osx":
+									[
+										"lein",
+										"repl"
+									],
+									"windows":
+									[
+										"lein.bat",
+										"repl"
+									]
+								},
+								"cwd":
+								{
+									"linux": "$file_path",
+									"osx": "$file_path",
+									"windows": "c:/Clojure"
+								},
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"INSIDE_EMACS": "1"
+								},
+								"external_id": "clojure",
+								"soft_quit": "\n(. System exit 0)\n",
+								"syntax": "Packages/Clojure/Clojure.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": true,
+							"smart_indent": false,
+							"spell_check": false,
+							"sublimelinter": "load-save",
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"synced": false,
+							"syntax": "Packages/Clojure/Clojure.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.487889390008,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 346.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"pagerank",
+				"org/apache/spark/examples/SparkPageRank.scala"
+			],
+			[
+				"grunt",
+				"tmp/Gruntfile.js"
+			],
+			[
+				"wiz",
+				"app/wizard/wizard-repository.js"
+			],
+			[
+				"regist",
+				"test/wizard/registration-service-specs.js"
+			],
+			[
+				"registr",
+				"app/wizard/registration-service.js"
+			],
+			[
+				"inde",
+				"app/index.html"
+			],
+			[
+				"catalog",
+				"app/catalog/catalog.html"
+			],
+			[
+				"grun",
+				"tryThings/Gruntfile.js"
+			],
+			[
+				"testtry",
+				"test/trythings_test.js"
+			],
+			[
+				"try",
+				"lib/trythings.js"
+			],
+			[
+				"testcompeti",
+				"test/spec/services/competitorsdatagetter.js"
+			],
+			[
+				"market.",
+				"app/views/competitors/market.html"
+			],
+			[
+				"bread",
+				"app/views/breadcrumb.html"
+			],
+			[
+				"results",
+				"app/views/resultstable.html"
+			],
+			[
+				"result",
+				"app/views/resultstable.html"
+			],
+			[
+				"tabular",
+				"app/views/tabularresult.html"
+			],
+			[
+				"mainmen",
+				"app/views/mainmenu.html"
+			],
+			[
+				"style",
+				"app/styles/style.css"
+			],
+			[
+				"views/customgraph.html",
+				"app/views/customgraph.html"
+			],
+			[
+				"custom",
+				"app/scripts/directives/customgraph.js"
+			],
+			[
+				"views/competitors/fundingsgraphs.html",
+				"app/views/competitors/fundingsgraphs.html"
+			],
+			[
+				"views/dstablefilter.html",
+				"app/views/dstablefilter.html"
+			],
+			[
+				"views/failedtab.html",
+				"app/views/failedtab.html"
+			],
+			[
+				"dstabl",
+				"app/views/dstable.html"
+			],
+			[
+				"views/competitors/competitors.html",
+				"app/views/competitors/competitors.html"
+			],
+			[
+				"views/dstable_list_result.html",
+				"app/views/dstable_list_result.html"
+			],
+			[
+				"views/dashboard.html",
+				"app/views/dashboard.html"
+			],
+			[
+				"app.js",
+				"app/scripts/app.js"
+			],
+			[
+				"views/breadcrumb.html",
+				"app/views/breadcrumb.html"
+			],
+			[
+				"views/mainmenu.html",
+				"app/views/mainmenu.html"
+			],
+			[
+				"views/tabularresultheader.html",
+				"app/views/tabularresultheader.html"
+			],
+			[
+				"views/resultstable.html",
+				"app/views/resultstable.html"
+			],
+			[
+				"main.js",
+				"app/scripts/controllers/main.js"
+			],
+			[
+				"tabularresult.html",
+				"app/views/tabularresult.html"
+			],
+			[
+				"main.html",
+				"app/views/main.html"
+			],
+			[
+				"index",
+				"app/index.html"
+			],
+			[
+				"shared",
+				"app/scripts/services/shareddatarepository.js"
+			],
+			[
+				"testshared",
+				"test/spec/services/shareddatarepository.js"
+			],
+			[
+				"karm",
+				"karma.conf.js"
+			],
+			[
+				"teststabssta",
+				"test/spec/services/tabsstate.js"
+			],
+			[
+				"testtabs",
+				"test/spec/controllers/tabs.js"
+			],
+			[
+				"tabs",
+				"app/scripts/controllers/tabs.js"
+			],
+			[
+				"testlogoima",
+				"test/spec/services/logoimagesearcher.js"
+			],
+			[
+				"testcompetitorsdata",
+				"test/spec/services/competitorsdatagetter.js"
+			],
+			[
+				"competitorsdata",
+				"app/scripts/services/competitorsdatagetter.js"
+			],
+			[
+				"karma",
+				"karma.conf.js"
+			],
+			[
+				"app",
+				"app/scripts/app.js"
+			],
+			[
+				"searcher",
+				"app/scripts/services/searcher.js"
+			],
+			[
+				"esquer",
+				"app/scripts/services/esqueries.js"
+			],
+			[
+				"fakedata",
+				"app/scripts/services/fakedata.js"
+			],
+			[
+				"acquisi",
+				"app/scripts/controllers/acquisitionsmanager.js"
+			],
+			[
+				"fundings",
+				"app/scripts/controllers/fundingsmanager.js"
+			],
+			[
+				"lists",
+				"app/scripts/services/listsmanager.js"
+			],
+			[
+				"test/spec/controllers/fundingsmanager.js",
+				"test/spec/controllers/fundingsmanager.js"
+			],
+			[
+				"test/spec/controllers/acquisitionsmanager.js",
+				"test/spec/controllers/acquisitionsmanager.js"
+			],
+			[
+				"fun",
+				"app/scripts/controllers/fundingsmanager.js"
+			],
+			[
+				"acqu",
+				"app/scripts/controllers/acquisitionsmanager.js"
+			],
+			[
+				"est/spec/directives/printerfriendlydstable.js",
+				"test/spec/directives/printerfriendlydstable.js"
+			],
+			[
+				"testlist",
+				"test/spec/controllers/listmanager.js"
+			],
+			[
+				"mapmanag",
+				"app/scripts/services/mapmanagement.js"
+			],
+			[
+				"elasticsearch",
+				"app/scripts/services/elasticsearchclient.js"
+			],
+			[
+				"testescont",
+				"test/spec/controllers/escontroller.js"
+			],
+			[
+				"escon",
+				"app/scripts/controllers/escontroller.js"
+			],
+			[
+				"bower",
+				"bower.json"
+			],
+			[
+				"geoco",
+				"app/scripts/services/geocoder.js"
+			],
+			[
+				"bowe",
+				"bower.json"
+			],
+			[
+				"escontro",
+				"app/scripts/controllers/escontroller.js"
+			],
+			[
+				"tagmana",
+				"app/scripts/controllers/tagmanager.js"
+			],
+			[
+				"tsfspli",
+				"test/spec/filters/splitwords.js"
+			],
+			[
+				"test/controllers/main",
+				"test/spec/controllers/main.js"
+			],
+			[
+				"split",
+				"app/scripts/filters/splitwords.js"
+			],
+			[
+				"docucommon",
+				"www/www.documenta.cat.new/amfphp/services/classes/dbclasses/DocuCommon.inc.php"
+			],
+			[
+				"leerdatorecur",
+				"flex/3.0/src/cat/documenta/engines/proyecto/AdministradorRecurso.as"
+			],
+			[
+				"factura2",
+				"www/www.instalacionespedagogicas.net/gestor/factura2.php"
+			],
+			[
+				"administradoridiom",
+				"www/www.documenta.cat.new/amfphp/services/AdministradorIdiomas.php"
+			],
+			[
+				"idiomamanager",
+				"flex/3.0/Flex_Project/src/cat/documenta/manager/idioma/IdiomaManager.as"
+			],
+			[
+				"administradoreventos",
+				"flex/3.0/Flex_Project/src/cat/documenta/engines/proyecto/AdministradorEventos.as"
+			],
+			[
+				"sesion",
+				"www/www.documenta.cat.new/amfphp/services/SesionEngine.php"
+			],
+			[
+				"idiomamana",
+				"www/www.documenta.cat.new/Flex_Project/src/cat/documenta/manager/idioma/IdiomaManager.as"
+			],
+			[
+				"docudatab",
+				"www/www.conversio.documenta.cat/amfphp/services/classes/dbclasses/DocuDatabase.inc.php"
+			],
+			[
+				"docutask",
+				"www/www.conversio.documenta.cat/amfphp/services/classes/DocuTask.php"
+			],
+			[
+				"docuvideomanipulationtask",
+				"www/www.conversio.documenta.cat/amfphp/services/classes/DocuVideoManipulationTask.php"
+			],
+			[
+				"docup",
+				"www/www.conversio.documenta.cat/amfphp/services/classes/DocuProcess.php"
+			],
+			[
+				"docuuplofil",
+				"www/www.conversio.documenta.cat/amfphp/services/classes/DocuUploadedFile.php"
+			],
+			[
+				"uplo",
+				"new_file_upload/amfphp/services/uploadFile.php"
+			],
+			[
+				"exec",
+				"new_file_upload/amfphp/services/scripts/execCleanup.php"
+			],
+			[
+				"conversiondaemon",
+				"new_file_upload/amfphp/services/scripts/conversionDaemonCleanup.php"
+			],
+			[
+				"player",
+				"www.instalacionespedagogicas.net/mydocumenta/sites/all/themes/kanji/js/player.js"
+			],
+			[
+				"list_capr",
+				"improvisa/scripts/list_carp_ok.php"
+			],
+			[
+				"list_cap",
+				"improvisa/scripts/list_carp_ok.php"
+			],
+			[
+				"dbacc",
+				"www.instalacionespedagogicas.net/gestor/utils/dbAccess.php"
+			],
+			[
+				"dbacce",
+				"3.0/amfphp/services/classes/dbclasses/DocuArea_de_conocimiento.inc.php"
+			],
+			[
+				"dbtest",
+				"www.instalacionespedagogicas.net/dbtest.php"
+			],
+			[
+				"arrangegru",
+				"www.instalacionespedagogicas.net/admin/utils/standalone/arrangeGrupo.php"
+			],
+			[
+				"arrangepref",
+				"www.instalacionespedagogicas.net/admin/utils/standalone/arrangePreferenciasDeUsuario.php"
+			],
+			[
+				"rolesmysql",
+				"chef/chef-repo/roles/mySqlServer.rb"
+			],
+			[
+				"alias",
+				"Vagrant/precise64/cookbooks/magic_shell/providers/alias.rb"
+			],
+			[
+				"execstart",
+				"amfphp/services/scripts/execStartNext.php"
+			],
+			[
+				"initialize.inc.php",
+				"amfphp/services/initialize.inc.php"
+			],
+			[
+				"uploadfile",
+				"amfphp/services/uploadFile.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 252.0,
+	"status_bar_visible": true
+}

@@ -1,6 +1,9 @@
 (ns Chapter1
  (:require [clojure.test :as test])
- (:use clojure.pprint) )
+ (:require [clojure.math.numeric-tower :as math])
+ (:use clojure.pprint)
+ (:gen-class)
+)
 
 (+ 1 2)
 
@@ -212,7 +215,7 @@ size
   (< x 0.1))
 
 (defn arg-reduction [x]
-  (sinus (/ x 3.0)))
+  (Math/sin (/ x 3.0)))
 
 (defn reduced-form [x]
   (- (* 3 (arg-reduction x)) (* 4 (cube (arg-reduction x)))))
@@ -220,7 +223,7 @@ size
 (defn sinus [x]
   (if (small-enough? x)  x (reduced-form x)))
 
-(sinus 30)
+(Math/sin 30)
 
 ; 1.16
 (defn expt [b n]
@@ -352,3 +355,15 @@ size
 
 (let [out *out*]
   (report-prime "12"))
+
+;1.23
+
+(defn -main
+  []
+  (println "hello World")
+  (println (* pi (* radius radius)))
+  (println (square 4))
+  (test/is (= false (divides? 2 15)))
+  (test/is (= true (divides? 3 15)))
+  (test/is (= true (divides? 2 10)))
+)

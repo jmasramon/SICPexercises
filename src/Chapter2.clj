@@ -1,10 +1,5 @@
 (ns Chapter2
- (:require [clojure.test :as test])
- (:require [clojure.math.numeric-tower :as math])
- (:use clojure.pprint)
- (:use Chapter1)
- (:gen-class)
-)
+ (:require  [Chapter1 :refer [gcd]]))
 
 
 ;2.1

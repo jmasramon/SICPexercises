@@ -1,1 +1,0 @@
-(ns SICP.core)

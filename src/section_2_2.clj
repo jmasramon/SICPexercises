@@ -24,7 +24,7 @@
 
 ;; 2.18 without using first !!
 (defn my-reverse [l]
-  (loop [l1 l 
+  (loop [l1 l
          l2 '()]
     (if (= 0 (length l1))
       l2
@@ -66,3 +66,140 @@
                    (parametrized-cc (- amount
                                        first-denomination)
                                     coins)))))
+
+;; 2.20 
+(defn same-parity
+  [first & rest]
+  (if (seq rest)
+    (if (odd? first)
+      (cons first (filter odd? rest))
+      (cons first (filter even? rest)))
+    nil))
+
+;; 2.21 
+(defn square-list-wo-map
+  [items]
+  (if (empty? items)
+    nil
+    (cons (* (first items) (first items)) (square-list-wo-map (rest items)))))
+
+(defn square-list [items]
+  (map #(* % %) items))
+
+;; 2.23       
+(defn for-each
+  [f list]
+  (if (empty? list)
+    nil
+    (do
+      (f (first list))
+      (for-each f (rest list)))))
+
+;; 2.27
+(defn deep-reverse
+  [tree]
+  (letfn [(my-loop [l1 l2]
+            (if (= 0
+                   (length l1))
+              l2
+              (let [cur (first l1)
+                    res (rest l1)]
+                (if (seq? cur)
+                  (my-loop res
+                           (cons (my-loop cur '())
+                                 l2))
+                  (my-loop res
+                           (cons cur
+                                 l2))))))]
+    (my-loop tree '())))
+
+(defn better-deep-reverse
+  [tree]
+  (if (not (seq? tree))
+    tree
+    (map better-deep-reverse (my-reverse tree))))
+
+;; 2.28
+(defn fringe
+  [tree]
+  (letfn [(my-loop [l1 l2]
+            (cond
+              (not (seq? l1)) (cons l1 l2)
+              (empty? l1) l2
+              :else (concat (my-loop (first l1) l2)
+                            (my-loop (rest l1) '()))))]
+    (my-loop tree '())))
+
+(defn better-fringe
+  [tree]
+  (cond
+    (not (seq? tree)) (list tree)
+    (empty? tree) tree
+    :else (concat (better-fringe (first tree)) (better-fringe (rest tree)))))
+
+;; 2.29
+;; mobile API
+(defn make-mobile [left right]
+  (list left right))
+
+(defn make-branch [length structure]
+  (list length structure))
+
+;; a.
+(defn left-branch
+  [mobile]
+  (first mobile))
+
+(defn right-branch
+  [mobile]
+  (second mobile))
+
+(defn b-length
+  [branch]
+  (first branch))
+
+(defn structure
+  [branch]
+  (second branch))
+
+;; b.
+(defn is-mobile? [potential-mobile]
+  (and
+   (seq? (left-branch potential-mobile))
+   (seq? (right-branch potential-mobile))))
+
+(defn is-branch? [potential-branch]
+  (not (is-mobile? potential-branch)))
+
+(defn is-final? [branch] 
+  (not (seq? (structure branch))))
+
+(defn has-sub-mobile? [branch] (not (is-final? branch)))
+
+(defn total-weight
+  [mobile]
+  (let [lb (left-branch mobile)
+        rb (right-branch mobile)
+        total-branch-weight #(if (is-final? %)
+                               (structure %)
+                               (total-weight (structure %)))]
+    (+ (total-branch-weight lb)
+       (total-branch-weight rb))))
+
+;; c.
+(defn torque [branch]
+    (* (b-length branch) 
+       (if (is-final? branch)
+         (structure branch)
+         (total-weight (right-branch branch)))))
+
+(defn is-balanced?
+  [elem]
+  (if (is-mobile? elem)
+    (and (= (torque (left-branch elem))
+            (torque (right-branch elem)))
+         (is-balanced? (left-branch elem))
+         (is-balanced? (right-branch elem)))
+    (if (is-final? elem)
+      true
+      (is-balanced? (structure elem)))))

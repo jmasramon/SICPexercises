@@ -131,7 +131,7 @@
     (cond 
       (= m 0) x
       (= m 1) y
-      true (throw (Exception. "failed"))))
+      :else (throw (Exception. "failed"))))
   dispatch)
 
 (defn first-bis [l] 

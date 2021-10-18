@@ -171,7 +171,7 @@
 (defn is-branch? [potential-branch]
   (not (is-mobile? potential-branch)))
 
-(defn is-final? [branch] 
+(defn is-final? [branch]
   (not (seq? (structure branch))))
 
 (defn has-sub-mobile? [branch] (not (is-final? branch)))
@@ -186,12 +186,23 @@
     (+ (total-branch-weight lb)
        (total-branch-weight rb))))
 
+(defn simpler-total-weight
+  [elem]
+  (cond
+    (nil? elem) 0
+    (not (seq? elem)) elem
+    :else (+ (simpler-total-weight (structure (left-branch elem)))
+             (simpler-total-weight (structure (right-branch elem))))))
+
 ;; c.
 (defn torque [branch]
-    (* (b-length branch) 
-       (if (is-final? branch)
-         (structure branch)
-         (total-weight (right-branch branch)))))
+  (* (b-length branch)
+     (if (is-final? branch)
+       (structure branch)
+       (total-weight (structure branch)))))
+
+(defn simpler-torque [branch]
+  (* (b-length branch) (simpler-total-weight (structure branch))))
 
 (defn is-balanced?
   [elem]
@@ -203,3 +214,13 @@
     (if (is-final? elem)
       true
       (is-balanced? (structure elem)))))
+
+(defn simpler-is-balanced?
+  [elem]
+  (cond
+    (not (seq? elem)) true
+    :else (and
+           (= (torque (left-branch elem))
+              (torque (right-branch elem)))
+           (simpler-is-balanced? (structure (left-branch elem)))
+           (simpler-is-balanced? (structure (right-branch elem))))))

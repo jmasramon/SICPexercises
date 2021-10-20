@@ -113,6 +113,14 @@
          (total-weight (make-mobile (make-branch 2 (make-mobile (make-branch 3 2)
                                                                 (make-branch 1 7)))
                                     (make-branch 1 7))))))
+(deftest simpler-total-weight-test
+  (is (= 9
+         (simpler-total-weight (make-mobile (make-branch 3 2)
+                                    (make-branch 1 7)))))
+  (is (= 16
+         (simpler-total-weight (make-mobile (make-branch 2 (make-mobile (make-branch 3 2)
+                                                                (make-branch 1 7)))
+                                    (make-branch 1 7))))))
 (deftest torque-test
   (is (= 6
          (torque (make-branch 3 2))))
@@ -123,6 +131,22 @@
                                               (make-branch 1 7))))))
   (is (= 36
          (torque (make-branch 2 (make-mobile  (make-branch 3
+                                                           (make-mobile  (make-branch 3 2)
+                                                                         (make-branch 1
+                                                                                      (make-mobile  (make-branch 3 2)
+                                                                                                    (make-branch 1 7)))))
+                                              (make-branch 1 7)))))))
+
+(deftest simpler-torque-test
+  (is (= 6
+         (simpler-torque (make-branch 3 2))))
+  (is (= 7
+         (simpler-torque (make-branch 1 7))))
+  (is (= 18
+         (simpler-torque (make-branch 2 (make-mobile  (make-branch 3 2)
+                                              (make-branch 1 7))))))
+  (is (= 36
+         (simpler-torque (make-branch 2 (make-mobile  (make-branch 3
                                                            (make-mobile  (make-branch 3 2)
                                                                          (make-branch 1
                                                                                       (make-mobile  (make-branch 3 2)
@@ -146,6 +170,27 @@
                                                                (make-branch 1 4)))))))
   (is (= true
          (is-balanced? (make-mobile (make-branch 3 2)
+                                    (make-branch 1
+                                                 (make-mobile  (make-branch 4 2)
+                                                               (make-branch 2 4))))))))
+
+(deftest simpler-is-balanced?-test
+  (is (= false
+         (simpler-is-balanced? (make-mobile (make-branch 3 2)
+                                    (make-branch 1 7)))))
+  (is (= true
+         (simpler-is-balanced? (make-mobile (make-branch 3 2)
+                                    (make-branch 1 6)))))
+  (is (= false
+         (simpler-is-balanced? (make-mobile (make-branch 3 2)
+                                    (make-branch 1 7)))))
+  (is (= false
+         (simpler-is-balanced? (make-mobile (make-branch 3 2)
+                                    (make-branch 1
+                                                 (make-mobile  (make-branch 3 2)
+                                                               (make-branch 1 4)))))))
+  (is (= true
+         (simpler-is-balanced? (make-mobile (make-branch 3 2)
                                     (make-branch 1
                                                  (make-mobile  (make-branch 4 2)
                                                                (make-branch 2 4))))))))

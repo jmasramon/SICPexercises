@@ -89,8 +89,8 @@
 (defn for-each
   [f list]
   (when (seq list)
-      (f (first list))
-      (for-each f (rest list))))
+    (f (first list))
+    (for-each f (rest list))))
 
 ;; 2.27
 (defn deep-reverse
@@ -183,12 +183,24 @@
     (+ (total-branch-weight lb)
        (total-branch-weight rb))))
 
+(defn simpler-total-weight
+  [elem]
+  (cond
+    (not (seq? elem)) elem
+    :else (+ (simpler-total-weight (structure (right-branch elem)))
+             (simpler-total-weight (structure (left-branch elem))))))
+
 ;; c.
 (defn torque [branch]
   (* (b-length branch)
      (if (is-final? branch)
        (structure branch)
        (total-weight (right-branch branch)))))
+
+(defn simpler-torque
+  [elem]
+  (* (b-length elem)
+     (simpler-total-weight (structure elem))))
 
 (defn is-balanced?
   [elem]
@@ -200,3 +212,15 @@
     (if (is-final? elem)
       true
       (is-balanced? (structure elem)))))
+
+(defn simpler-is-balanced?
+  [elem]
+  (if (seq? elem)
+    (let [lb  (left-branch elem)
+          rb (right-branch elem)]
+      (and
+       (= (simpler-torque lb)
+          (simpler-torque rb))
+       (simpler-is-balanced? (structure lb))
+       (simpler-is-balanced? (structure rb))))
+    true))

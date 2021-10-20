@@ -7,7 +7,10 @@
                  [org.clojure/math.numeric-tower "0.0.4"]]
   
   :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.25.0"]
-                              [venantius/ultra "0.6.0"]]}}
+                             [venantius/ultra "0.6.0"]
+                             [lein-kibit "0.1.6"]
+                             [lein-cloverage "1.2.2"]]}}
+  
   :test-refresh {;; Specifies a command to run on test
                  ;; failure/success. Short message is passed as the
                  ;; last argument to the command.
@@ -21,20 +24,20 @@
                  ;; only growl and use the notify command if there are
                  ;; failures.
                  ;; Defaults to true.
-                ;;  :notify-on-success true
+                 ;;:notify-on-success false
 
                  ;; Stop clojure.test from printing
                  ;; "Testing namespace.being.tested". Very useful on
                  ;; codebases with many test namespaces.
                  ;; Defaults to false.
-                ;;  :quiet true
+                 :quiet true
 
                  ;; If this is specified then only tests in namespaces
                  ;; that were just reloaded by tools.namespace
                  ;; (namespaces where a change was detected in it or a
                  ;; dependent namespace) are run. This can also be
                  ;; passed as a command line option: lein test-refresh :changes-only.
-                ;;  :changes-only true
+                :changes-only true
 
                  ;; If specified, binds value to clojure.test/*stack-trace-depth*
                 ;;  :stack-trace-depth nil

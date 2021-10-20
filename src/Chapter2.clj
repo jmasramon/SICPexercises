@@ -5,10 +5,10 @@
 ;2.1
 (defn make-rat [num den] 
   (let [g (gcd num den)
-        sign (if (or (and (< num 0) 
-                          (> den 0))
-                     (and (> num 0) 
-                          (< den 0)))
+        sign (if (or (and (neg? num)  
+                          (pos? den))
+                     (and(pos? num) 
+                          (neg? den) ))
                -1
                1)]
     (cons (/ (* sign num) g) [(/ den g)])))
@@ -129,7 +129,7 @@
 (defn cons-bis [x y]
   (defn dispatch [m]
     (cond 
-      (= m 0) x
+     (zero? m) x
       (= m 1) y
       :else (throw (Exception. "failed"))))
   dispatch)
@@ -154,7 +154,7 @@
 (defn num-powers [n prime]
   (defn iter [rest acc]
     (if (zero? (mod rest prime)) 
-      (iter (/ rest prime) (+ acc 1))
+      (iter (/ rest prime) (inc acc))
       acc))
   (iter n 0))
     

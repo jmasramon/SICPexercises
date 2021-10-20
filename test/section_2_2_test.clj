@@ -5,11 +5,11 @@
 ;; 2.17
 (deftest  length-test
   (is (= 4 (length '(23 72 149 34))))
-  (is (= 0 (length '()))))
+  (is (zero? (length '())))) 
 
 (deftest  length-iter-test
   (is (= 4 (length-iter '(23 72 149 34))))
-  (is (= 0 (length-iter '()))))
+  (is (zero? (length-iter '())))) 
 
 (deftest  append-test
   (is (= '(34 149 72 23 1 2 3)
@@ -33,8 +33,8 @@
   (is (= 292 (count-change 100)))
   (is (= 292 (parametrized-cc 100 us-coins)))
   (is (= 292 (parametrized-cc 100 (reverse us-coins))))
-  (is (= 65 (parametrized-cc 25 uk-coins)))
-  (is (= 65 (parametrized-cc 25 (reverse uk-coins)))))
+  (is (= 559 (parametrized-cc 25 uk-coins)))
+  (is (= 559 (parametrized-cc 25 (reverse uk-coins)))))
 
 (deftest same-parity-test
   (is (= '(1 3 5)

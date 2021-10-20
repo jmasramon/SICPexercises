@@ -3,16 +3,16 @@
 (defn length [items]
   (if (empty? items)
     0
-    (+ 1 (length (rest items)))))
+    (inc (length (rest items)))))
 
 (defn length-iter [items]
   (loop [items items acc 0]
     (if (empty? items)
       acc
-      (recur (rest items) (+ 1 acc)))))
+      (recur (rest items) (inc acc)))))
 
 (defn append [l1 l2]
-  (if (= 0 (length l1))
+  (if (zero? (length l1))
     l2
     (append (rest l1) (cons (first l1) l2))))
 
@@ -26,7 +26,7 @@
 (defn my-reverse [l]
   (loop [l1 l
          l2 '()]
-    (if (= 0 (length l1))
+    (if (zero? (length l1))
       l2
       (recur (rest l1) (cons (first l1) l2)))))
 
@@ -41,11 +41,11 @@
         (= 5 kinds-of-coins) 50))
 
 (defn cc [amount kinds-of-coins]
-  (cond (= 0 amount) 1
-        (or (< amount 0)
-            (= kinds-of-coins 0)) 0
+  (cond (zero? amount) 1
+        (or (neg? amount)
+            (zero? kinds-of-coins)) 0
         :else (+ (cc amount
-                     (- kinds-of-coins 1))
+                     (dec kinds-of-coins))
                  (cc (- amount
                         (first-denomination kinds-of-coins))
                      kinds-of-coins))))
@@ -59,28 +59,27 @@
 (defn parametrized-cc [amount coins]
   (let [first-denomination (first coins)
         coins-minus-first (rest coins)]
-    (cond (= 0 amount) 1
-          (or (< amount 0)
-              (empty? coins)) 0
-          :else (+ (parametrized-cc amount coins-minus-first)
-                   (parametrized-cc (- amount
-                                       first-denomination)
-                                    coins)))))
+    (cond
+      (zero? amount) 1
+      (or (neg? amount)
+          (empty? coins)) 0
+      :else (+ (parametrized-cc amount coins-minus-first)
+               (parametrized-cc (- amount
+                                   first-denomination)
+                                coins)))))
 
 ;; 2.20 
 (defn same-parity
   [first & rest]
-  (if (seq rest)
+  (when (seq rest)
     (if (odd? first)
       (cons first (filter odd? rest))
-      (cons first (filter even? rest)))
-    nil))
+      (cons first (filter even? rest)))))
 
 ;; 2.21 
 (defn square-list-wo-map
   [items]
-  (if (empty? items)
-    nil
+  (when (seq items)
     (cons (* (first items) (first items)) (square-list-wo-map (rest items)))))
 
 (defn square-list [items]
@@ -89,18 +88,16 @@
 ;; 2.23       
 (defn for-each
   [f list]
-  (if (empty? list)
-    nil
-    (do
+  (when (seq list)
       (f (first list))
-      (for-each f (rest list)))))
+      (for-each f (rest list))))
 
 ;; 2.27
 (defn deep-reverse
   [tree]
   (letfn [(my-loop [l1 l2]
-            (if (= 0
-                   (length l1))
+            (if (zero?
+                 (length l1))
               l2
               (let [cur (first l1)
                     res (rest l1)]
@@ -115,7 +112,7 @@
 
 (defn better-deep-reverse
   [tree]
-  (if (not (seq? tree))
+  (if-not (seq? tree)
     tree
     (map better-deep-reverse (my-reverse tree))))
 
@@ -171,7 +168,7 @@
 (defn is-branch? [potential-branch]
   (not (is-mobile? potential-branch)))
 
-(defn is-final? [branch] 
+(defn is-final? [branch]
   (not (seq? (structure branch))))
 
 (defn has-sub-mobile? [branch] (not (is-final? branch)))
@@ -188,10 +185,10 @@
 
 ;; c.
 (defn torque [branch]
-    (* (b-length branch) 
-       (if (is-final? branch)
-         (structure branch)
-         (total-weight (right-branch branch)))))
+  (* (b-length branch)
+     (if (is-final? branch)
+       (structure branch)
+       (total-weight (right-branch branch)))))
 
 (defn is-balanced?
   [elem]

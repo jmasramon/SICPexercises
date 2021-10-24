@@ -20,20 +20,20 @@
 ;;(square 3)
 
 (defn abs [x]
-  (cond (> x 0) x
-        (= x 0) 0
-        (< x 0) (- x)))
+  (cond (pos? x) x
+        (zero? x) 0
+        (neg? x) (- x)))
 
 ;;(abs -3)
 
 (defn abs2 [x]
-  (cond (< x 0) (- x)
-        true x))
+  (cond (neg? x) (- x)
+        :else x))
 
 ;;(abs2 -3)
 
 (defn abs3 [x]
-  (if (< x 0) (- x) x))
+  (if (neg? x) (- x) x))
 
 ;;(abs3 -3)
 
@@ -47,7 +47,7 @@
 ;;(sqrSumBiggest 3 2 1)
 
 (defn a-plus-abs-b [a b]
-  ((if (> b 0) + -) a b))
+  ((if(pos? b) + -) a b))
 
 ;;(a-plus-abs-b 2 -3)
 ;;(a-plus-abs-b 2 3)
@@ -55,9 +55,7 @@
 (defn p [] (p))
 
 (defn testOrder [x y]
-  (if (= x 0) 0 y))
-
-(if (= 0 0) 0 (p))
+  (if (zero? x) 0 y))
 
 ;(testOrder 0 (p)) ;stack overflow
 
@@ -99,8 +97,8 @@
   (if (< (abs (- (square guess) nextGuess)) (* guess 0.001)) true false))
 
 (defn sqrt-iter-improved [guess x]
-  (def nextGuess (improve guess x))
-  (if (good-enough-improved? guess nextGuess) guess (sqrt-iter nextGuess x)))
+  (let [nextGuess (improve guess x)]
+    (if (good-enough-improved? guess nextGuess) guess (sqrt-iter nextGuess x))))
 
 (defn sqrt-improved [x]
   (sqrt-iter-improved 1.0 x))
@@ -143,22 +141,22 @@
 
 ;; 1.9
 ;(defn + [a b]
-;  (if (= a 0)
+;  (if (zero? a)
 ;      b
 ;      (inc (+ (dec a) b))))  ; recursive
 ;
 ;(defn + [a b]
-;  (if (= a 0)
+;  (if (zero? a)
 ;      b
 ;      (+ (dec a) (inc b)))) ; iterative
 
 ; 1.10
 (defn A [x y]
-  (cond (= y 0) 0
-        (= x 0) (* 2 y)
+  (cond(zero? y) 0
+        (zero? x) (* 2 y)
         (= y 1) 2
-        :else (A (- x 1)
-                 (A x (- y 1)))))
+        :else (A (dec x) 
+                 (A x (dec y) ))))
 
 ;; (A 1 10)
 ;; (A 2 4)
@@ -166,7 +164,7 @@
 ; 1.11
 (defn f [n]
   (if (< n 3) n
-      (+ (f (- n 1))
+      (+ (f (dec n) )
          (* 2 (f (- n 2)))
          (* 3 (f (- n 3))))))
 
@@ -174,7 +172,7 @@
   (defn ff-rec [n fn-3 fn-2 fn-1]
     (cond (< n 3) n
           (= n 3) (+ fn-1 (* 2 fn-2) (* 3 fn-3))
-          true    (ff-rec (- n 1)
+          :else    (ff-rec (dec n) 
                           fn-2
                           fn-1
                           (+ fn-1 (* 2 fn-2) (* 3 fn-3)))))
@@ -182,12 +180,12 @@
 
 ; 1.12
 (defn pascal [row col]
-  (cond (< row 0) 0
-        (< col 0) 0
+  (cond (neg? row) 0
+        (neg? col) 0
         (> col row) 0
         (= row col 0) 1
-        true (+ (pascal (- row 1) (- col 1))
-                (pascal (- row 1) col))))
+        :else (+ (pascal(dec row) (dec col) )
+                (pascal(dec row) col))))
 
 
 ; 1.13
@@ -214,29 +212,29 @@
 
 ; 1.16
 (defn expt [b n]
-  (if (= n 0) 1 (* b (expt b (- n 1)))))
+  (if (zero? n) 1 (* b (expt b (dec n) ))))
 
 ;; (expt 2 4)
 
 (defn expt-linear [b n]
   (defn expt-rec [b n acc]
-    (if (= n 0) acc (expt-rec b (- n 1) (* b acc))))
+    (if (zero? n) acc (expt-rec b(dec n) (* b acc))))
   (expt-rec b n 1))
 
 ;; (expt-linear 2 4)
 
 (defn expt-succ [b n]
-  (cond (= n 0) 1
+  (cond (zero? n) 1
         (even? n) (square (expt-succ b (/ n 2)))
-        true (* b (expt-succ b (- n 1)))))
+        true (* b (expt-succ b (dec n) ))))
 
 ;; (expt-succ 2 4)
 
 (defn expt-succ-iter [b n]
   (defn expt-rec [b n acc]
-    (cond (= n 0) acc
+    (cond (zero? n) acc
           (even? n) (expt-rec (square b) (/ n 2)  acc)
-          true (expt-rec b (- n 1) (* acc b))))
+          true (expt-rec b(dec n) (* acc b))))
   (expt-rec b n 1))
 
 ;; (even? 1)
@@ -244,9 +242,9 @@
 
 ; 1.17
 (defn mult-add [x y]
-  (cond (or (= x 0) (= y 0)) 0
+  (cond (or (zero? x) (zero? y) ) 0
         (= y 1) x
-        true (+ x (mult-add x (- y 1)))))
+        true (+ x (mult-add x (dec y) ))))
 
 ;; (mult-add 3 3)
 
@@ -257,19 +255,19 @@
   (/ x 2))
 
 (defn fast-mult-add [x y]
-  (cond (or (= x 0) (= y 0)) 0
+  (cond (or (zero? x) (zero? y) ) 0
         (even? y) (doub (fast-mult-add x (halve y)))
-        true (+ x (fast-mult-add x (- y 1)))))
+        true (+ x (fast-mult-add x (dec y) ))))
 
 ;; (fast-mult-add 7 11)
 
 ; 1.18
 (defn fast-iterative-mult-add [x y]
   (defn recurs [x y acc]
-    (cond (= x 0) 0
-          (= y 0) acc
+    (cond (zero? x) 0
+         (zero? y) acc
           (even? y) (recurs (doub x) (halve y) acc)
-          true (recurs x (- y 1) (+ x acc))))
+          true (recurs x(dec y) (+ x acc))))
   (recurs x y 0))
 
 ;; (fast-iterative-mult-add 3 3)
@@ -277,9 +275,9 @@
 ; 1.19
 (defn fib [n]
   (defn fib-iter [a b p q i]
-    (cond (= i 0) b
+    (cond(zero? i) b
           (even? i) (fib-iter a b (+ (square p) (square q)) (+ (* 2 p q) (square q)) (/ i 2))
-          true (fib-iter (+ (* b q) (* a q) (* a p)) (+ (* b p) (* a q)) p q (- i 1))))
+          true (fib-iter (+ (* b q) (* a q) (* a p)) (+ (* b p) (* a q)) p q (dec i) )))
   (fib-iter 1 0 0 1 n))
 
 ;; (fib 7)
@@ -287,7 +285,7 @@
 
 ; 1.20
 (defn gcd [a b]
-  (if (= b 0) a (gcd b (rem a b))))
+  (if(zero? b) a (gcd b (rem a b))))
 
 ;; (gcd 40 30)
 
@@ -299,7 +297,7 @@
 
 ; 1.21      smallest divisor
 (defn divides? [a b]
-  (= (rem b a) 0))
+  (zero? (rem b a)))
 
 ;; (test/is (= false (divides? 2 15)))
 ;; (test/is (= true (divides? 3 15)))
@@ -308,7 +306,7 @@
 (defn find-divisor [n test-divisor]
   (cond (divides? test-divisor n) test-divisor
         (> (square  test-divisor) n) n
-        true (find-divisor n (+ test-divisor 1))))
+        :else (find-divisor n (inc test-divisor))))
 
 ;; (test/is (= (find-divisor 1 2) 1))
 ;; (test/is (= (find-divisor 2 2) 2))

@@ -276,3 +276,22 @@
 (deftest  accomulator-append-test
   (is (= '(23 72 149 34 1 2 3)
          (accomulator-append '(23 72 149 34) '(1 2 3)))))
+
+(deftest  accomulator-length-test
+  (is (= 4
+         (accomulator-length '(23 72 149 34))))
+  (is (= 7
+         (accomulator-length '(23 72 149 34 2 3 4)))))
+
+;; 2.34 
+(deftest horner-eval-test
+  (is (= 34
+         (horner-eval 3 '(1 2 3))))
+  (is (= 79
+         (horner-eval 2 '(1 3 0 5 0 1)))))
+
+(deftest simpler-horner-eval-test
+  (is (= 34
+         (simpler-horner-eval 3 '(1 2 3))))
+  (is (= 79
+         (simpler-horner-eval 2 '(1 3 0 5 0 1)))))

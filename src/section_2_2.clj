@@ -229,7 +229,8 @@
   [tree factor]
   (cond
     (not (seq? tree)) (* factor tree)
-    :else (list (scale-tree (left-branch tree) factor) (scale-tree (right-branch tree) factor))))
+    :else (list (scale-tree (left-branch tree) factor)
+                (scale-tree (right-branch tree) factor))))
 
 (defn scale-tree-map
   [tree factor]
@@ -284,10 +285,13 @@
     :else (my-filter p (rest xs))))
 
 (defn my-accumulator
+  "f has [x acc]"
   [f i xs]
   (cond
     (empty? xs) i
-    :else (f (first xs) (my-accumulator f i (rest xs)))))
+    :else (let [x (first xs)
+                acc (my-accumulator f i (rest xs))]
+            (f x acc))))
 
 ;; 2.33
 (defn accomulator-map
@@ -297,15 +301,25 @@
 
 (defn accomulator-filter
   [p xs]
-  (my-accumulator #(if (p %1) (cons %1 %2) %2) 
+  (my-accumulator #(if (p %1) (cons %1 %2) %2)
                   '() xs))
 
 (defn accomulator-append
   [xs ys]
-  (my-accumulator #(cons %1 %2) 
+  (my-accumulator #(cons %1 %2)
                   ys xs))
 
 (defn accomulator-length
-  [p xs])
+  [xs]
+  (my-accumulator #(inc %2) 0 xs))
 
+;; 2.34
+(defn horner-eval
+  [x-val coef-xs]
+  (+ (first coef-xs)
+     (my-accumulator #(* x-val (+ %2 %1)) 0 (rest coef-xs))))
+
+(defn simpler-horner-eval
+  [x-val coef-xs]
+  (my-accumulator #(+ %1 (* x-val %2)) 0  coef-xs))
 

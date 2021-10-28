@@ -5,11 +5,11 @@
 ;; 2.17
 (deftest  length-test
   (is (= 4 (length '(23 72 149 34))))
-  (is (zero? (length '())))) 
+  (is (zero? (length '()))))
 
 (deftest  length-iter-test
   (is (= 4 (length-iter '(23 72 149 34))))
-  (is (zero? (length-iter '())))) 
+  (is (zero? (length-iter '()))))
 
 (deftest  append-test
   (is (= '(34 149 72 23 1 2 3)
@@ -199,3 +199,80 @@
                                                          (make-mobile  (make-branch 4 2)
                                                                        (make-branch 2 4))))))))
 
+;; 2.30.
+;; previous
+(deftest scale-tree-test
+  (is (= '(2 4)
+         (scale-tree '(1 2) 2)))
+  (is (= '(3 (6 9))
+         (scale-tree '(1 (2 3)) 3)))
+  (is (= '((4 (8 12)) (8 12))
+         (scale-tree '((1 (2 3)) (2 3)) 4))))
+
+(deftest scale-tree-map-test
+  (is (= '(2 4)
+         (scale-tree-map '(1 2) 2)))
+  (is (= '(3 (6 9))
+         (scale-tree-map '(1 (2 3)) 3)))
+  (is (= '((4 (8 12)) (8 12))
+         (scale-tree-map '((1 (2 3)) (2 3)) 4))))
+
+;; actual
+(deftest square-tree-test
+  (is (= '(1 4)
+         (square-tree '(1 2))))
+  (is (= '(1 (4 9))
+         (square-tree '(1 (2 3)))))
+  (is (= '((1 (4 9)) (4 9))
+         (square-tree '((1 (2 3)) (2 3))))))
+
+;; 2.31
+(defn square-tree-map
+  [tree]
+  (tree-map #(* % %) tree))
+
+(deftest square-tree-map-test
+  (is (= '(1 4)
+         (square-tree-map '(1 2))))
+  (is (= '(1 (4 9))
+         (square-tree-map '(1 (2 3)))))
+  (is (= '((1 (4 9)) (4 9))
+         (square-tree-map '((1 (2 3)) (2 3))))))
+
+(deftest subsets-test
+  (is (= '((2 3) (2) () (3) (1 3) (1) (1 2) (1 2 3))
+         (subsets '(1 2 3)))))
+
+;;  sequences as conventional interfaces
+(deftest my-map-test
+  (is (= '(2 4 6)
+         (my-map (partial * 2) '(1 2 3)))))
+
+(deftest my-filter-test
+  (is (= '(1 3)
+         (my-filter odd? '(1 2 3))))
+  (is (= '(2)
+         (my-filter even? '(1 2 3)))))
+
+(deftest my-accumulator-test
+  (is (= 6
+         (my-accumulator + 0 '(1 2 3))))
+  (is (= 24
+         (my-accumulator * 1 '(2 3 4))))
+  (is (= '(2 3 4)
+         (my-accumulator cons '() '(2 3 4)))))
+
+;; 2.33 
+(deftest accomulator-map-test
+  (is (= '(2 4 6)
+         (accomulator-map (partial * 2) '(1 2 3)))))
+
+(deftest accomulator-filter-test
+  (is (= '(1 3)
+         (accomulator-filter odd? '(1 2 3))))
+  (is (= '(2)
+         (accomulator-filter even? '(1 2 3)))))
+
+(deftest  accomulator-append-test
+  (is (= '(23 72 149 34 1 2 3)
+         (accomulator-append '(23 72 149 34) '(1 2 3)))))

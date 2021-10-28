@@ -9,3 +9,8 @@
 '(3  '(1 2))
 '(3 (1 2))
 (conj 1 '())
+(empty? '())
+(rest '())
+(empty? (rest '()))
+(empty? (rest '(1)))
+(empty? (rest '(1 2)))

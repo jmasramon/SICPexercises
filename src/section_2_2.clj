@@ -221,3 +221,91 @@
               (torque (right-branch elem)))
            (simpler-is-balanced? (structure (left-branch elem)))
            (simpler-is-balanced? (structure (right-branch elem))))))
+
+
+;; 2.30.
+;; previous
+(defn scale-tree
+  [tree factor]
+  (cond
+    (not (seq? tree)) (* factor tree)
+    :else (list (scale-tree (left-branch tree) factor) (scale-tree (right-branch tree) factor))))
+
+(defn scale-tree-map
+  [tree factor]
+  (cond
+    (not (seq? tree)) (* factor tree)
+    :else (map #(scale-tree-map % factor) tree)))
+
+;; actual
+(defn square-tree
+  [tree]
+  (cond
+    (not (seq? tree)) (* tree tree)
+    :else (map #(square-tree %) tree)))
+
+;; 2.31
+(defn tree-map
+  [f tree]
+  (cond
+    (not (seq? tree)) (f tree)
+    :else (map #(tree-map f %) tree)))
+
+;; 2.32
+(defn subsets
+  [s]
+  ;;(println "s: " s)
+  (if (empty? s)
+      ;; (println "empty s")
+    '(())
+    (let [pending (subsets (rest s))]
+      ;; (println "pending: " pending)
+      ;; (println "(first s): " (first s))
+      ;; (println "appending: "       (map #(cons (first s) %) pending))
+      ;; (println "sub-result: " (append pending
+      ;;                                 (map #(cons (first s) %)
+      ;;                                      pending)))
+      (append pending
+              (map #(cons (first s) %)
+                   pending)))))
+
+;;  sequences as conventional interfaces
+(defn my-map
+  [f list]
+  (if (empty? list)
+    '()
+    (cons (f (first list)) (my-map f (rest list)))))
+
+(defn my-filter
+  [p xs]
+  (cond
+    (empty? xs) '()
+    (p (first xs)) (cons (first xs) (my-filter p (rest xs)))
+    :else (my-filter p (rest xs))))
+
+(defn my-accumulator
+  [f i xs]
+  (cond
+    (empty? xs) i
+    :else (f (first xs) (my-accumulator f i (rest xs)))))
+
+;; 2.33
+(defn accomulator-map
+  [f xs]
+  (my-accumulator #(cons (f %1) %2)
+                  '() xs))
+
+(defn accomulator-filter
+  [p xs]
+  (my-accumulator #(if (p %1) (cons %1 %2) %2) 
+                  '() xs))
+
+(defn accomulator-append
+  [xs ys]
+  (my-accumulator #(cons %1 %2) 
+                  ys xs))
+
+(defn accomulator-length
+  [p xs])
+
+

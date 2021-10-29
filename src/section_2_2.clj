@@ -323,3 +323,62 @@
   [x-val coef-xs]
   (my-accumulator #(+ %1 (* x-val %2)) 0  coef-xs))
 
+;; 2.35
+(defn accomulator-count-leaves
+  [t]
+  (my-accumulator #(cond
+                     (seq? %1) (+ %2 (accomulator-count-leaves %1))
+                     :else (inc %2)) 0 t))
+
+(defn accomulator-count-leaves-mapped
+  [t]
+  (my-accumulator + 0 (map #(cond
+                              (seq? %) (accomulator-count-leaves-mapped %)
+                              :else 1)
+                           t)))
+
+;; 2.36 
+(defn accumulate-n
+  [f i xss]
+  (letfn  [(pf [f i xss acc]
+             (let [all-empty? (my-accumulator #(and %1 %2) true (map empty? xss))]
+               (cond
+                 all-empty? (reverse acc)
+                 :else (let [sum-of-firsts (my-accumulator f i (map first xss))
+                             new-acc (cons sum-of-firsts acc)
+                             nex-xss (map rest xss)]
+                         (pf
+                          f
+                          i
+                          nex-xss
+                          new-acc)))))]
+    (pf f i xss '())))
+
+(defn simpler-accumulate-n
+  [f i xss]
+  (cond (my-accumulator #(and %1 %2) true (map empty? xss)) '()
+        :else (cons  (my-accumulator f i (map first xss))
+                     (simpler-accumulate-n f i (map rest xss))))
+)
+
+;; 2.37
+(defn dot-product
+  [v w]
+  (my-accumulator #(+ (* (first %1) (second %1)) %2) 0 (map list v w))
+)
+
+(defn simpler-dot-product
+  [v w]
+  (my-accumulator + 0 (map * v w)))
+
+(defn matrix-*-vector
+  [m v]
+)
+
+(defn matrix-*-matrix
+  [m n]
+)
+
+(defn transpose
+  [m]
+)

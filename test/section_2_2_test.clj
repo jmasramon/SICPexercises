@@ -295,3 +295,36 @@
          (simpler-horner-eval 3 '(1 2 3))))
   (is (= 79
          (simpler-horner-eval 2 '(1 3 0 5 0 1)))))
+
+;; 2.35
+(deftest accomulator-count-leaves-test
+  (is (= 8
+         (accomulator-count-leaves '(((1 2)
+                                      3 4)
+                                     ((1 2)
+                                      3 4))))))
+
+(deftest accomulator-count-leaves-mapped-test
+  (is (= 8
+         (accomulator-count-leaves-mapped '(((1 2)
+                                      3 4)
+                                     ((1 2)
+                                      3 4))))))
+;; 2.36 
+(deftest accumulate-n-test
+  (is (= '(22 26 30)
+         (accumulate-n + 0 '((1 2 3) (4 5 6) (7 8 9) (10 11 12))))))
+
+(deftest simpler-accumulate-n-test
+  (is (= '(22 26 30)
+         (simpler-accumulate-n + 0 '((1 2 3) (4 5 6) (7 8 9) (10 11 12))))))
+
+(def matrix '((1 2 3 4) (5 6 7 8) (9 10 11 12)))
+
+(deftest dot-product-test
+  (is (= 70
+         (dot-product '(1 2 3 4) '(5 6 7 8)))))
+
+(deftest simpler-dot-product-test
+  (is (= 70
+         (simpler-dot-product '(1 2 3 4) '(5 6 7 8)))))

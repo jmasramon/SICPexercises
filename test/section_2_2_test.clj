@@ -319,6 +319,7 @@
   (is (= '(22 26 30)
          (simpler-accumulate-n + 0 '((1 2 3) (4 5 6) (7 8 9) (10 11 12))))))
 
+;; 2.37
 (def matrix '((1 2 3 4) (5 6 7 8) (9 10 11 12)))
 
 (deftest dot-product-test
@@ -328,3 +329,50 @@
 (deftest simpler-dot-product-test
   (is (= 70
          (simpler-dot-product '(1 2 3 4) '(5 6 7 8)))))
+
+(deftest matrix-*-vector-test
+  (is (=  '(70 174 278)
+          (matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12)) 
+                           '(5 6 7 8)))))
+
+(deftest simpler-matrix-*-vector-test
+  (is (=  '(70 174 278)
+          (simpler-matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12)) 
+                                   '(5 6 7 8)))))
+
+
+(deftest matrix-*-matrix-test
+  (is (=  '((38 98 158) (44 116 188) (50 134 218))
+          (matrix-*-matrix '((1 2 3) (5 6 7) (9 10 11)) 
+                           '((1 2 3) (5 6 7) (9 10 11)))))
+  (is (=  '((0 -3) (-10 -1))
+          (matrix-*-matrix '((0 4 -2) (-4 -3 0))
+                           '((0 1) (1 -1) (2 3))))))
+
+(deftest transpose-test
+  (is (=  '((1 5 9) (2 6 10) (3 7 11) (4 8 12))
+          (transpose '((1 2 3 4) (5 6 7 8) (9 10 11 12))))))
+
+(deftest simpler-transpose-test
+  (is (=  '((1 5 9) (2 6 10) (3 7 11) (4 8 12))
+          (simpler-transpose '((1 2 3 4) (5 6 7 8) (9 10 11 12))))))
+
+
+;; 2.38
+(deftest fold-left-test
+  (is (= 6
+         (fold-left + 0 '(1 2 3))))
+  (is (= 24
+         (fold-left * 1 '(2 3 4))))
+  (is (= (reverse '(2 3 4))
+         (fold-left conj '() '(2 3 4))))
+  (is (= '(((() 2) 3) 4)
+         (fold-left list '() '(2 3 4))))
+   (is (= '(2 (3 (4 ())))
+          (my-accumulator list '() '(2 3 4))))
+  (is (= 1/6
+         (fold-left / 1 '(1 2 3))))
+  (is (= 3/2
+         (my-accumulator / 1 '(1 2 3))))
+  )
+

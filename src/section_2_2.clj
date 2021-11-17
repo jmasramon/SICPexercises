@@ -358,14 +358,12 @@
   [f i xss]
   (cond (my-accumulator #(and %1 %2) true (map empty? xss)) '()
         :else (cons  (my-accumulator f i (map first xss))
-                     (simpler-accumulate-n f i (map rest xss))))
-)
+                     (simpler-accumulate-n f i (map rest xss)))))
 
 ;; 2.37
 (defn dot-product
   [v w]
-  (my-accumulator #(+ (* (first %1) (second %1)) %2) 0 (map list v w))
-)
+  (my-accumulator #(+ (* (first %1) (second %1)) %2) 0 (map list v w)))
 
 (defn simpler-dot-product
   [v w]
@@ -373,12 +371,32 @@
 
 (defn matrix-*-vector
   [m v]
-)
+  (cond (empty? m) '()
+        :else (cons (simpler-dot-product (first m) v)
+                    (matrix-*-vector (rest m) v))))
+
+(defn simpler-matrix-*-vector
+  [m v]
+  (map #(simpler-dot-product % v) m))
+
+(declare transpose)
 
 (defn matrix-*-matrix
   [m n]
-)
+  (let [inverted-n (transpose n)]
+    (map #(matrix-*-vector m %) inverted-n)))
 
 (defn transpose
   [m]
-)
+  (cond (my-accumulator #(and %1 %2) true (map empty? m)) '()
+        :else (cons (map first m) (transpose (map rest m)))))
+
+(defn simpler-transpose
+  [m]
+  (accumulate-n cons '() m))
+
+;; 2.38
+(defn fold-left
+  [f i xs]
+  (cond (empty? xs) i
+        :else (fold-left f (f i (first xs)) (rest xs)))) ;; TODO: understand why the accumulator has to be the first param 

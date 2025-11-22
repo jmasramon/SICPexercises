@@ -1,6 +1,6 @@
-(ns section-2-2-test
+(ns Section2-2-test
   (:require [clojure.test :refer [deftest is]]
-            [section-2-2 :refer :all]))
+            [Section2-2 :refer :all]))
 
 ;; 2.17
 (deftest  length-test
@@ -307,9 +307,9 @@
 (deftest accomulator-count-leaves-mapped-test
   (is (= 8
          (accomulator-count-leaves-mapped '(((1 2)
-                                      3 4)
-                                     ((1 2)
-                                      3 4))))))
+                                             3 4)
+                                            ((1 2)
+                                             3 4))))))
 ;; 2.36 
 (deftest accumulate-n-test
   (is (= '(22 26 30)
@@ -332,18 +332,18 @@
 
 (deftest matrix-*-vector-test
   (is (=  '(70 174 278)
-          (matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12)) 
+          (matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12))
                            '(5 6 7 8)))))
 
 (deftest simpler-matrix-*-vector-test
   (is (=  '(70 174 278)
-          (simpler-matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12)) 
+          (simpler-matrix-*-vector '((1 2 3 4) (5 6 7 8) (9 10 11 12))
                                    '(5 6 7 8)))))
 
 
 (deftest matrix-*-matrix-test
   (is (=  '((38 98 158) (44 116 188) (50 134 218))
-          (matrix-*-matrix '((1 2 3) (5 6 7) (9 10 11)) 
+          (matrix-*-matrix '((1 2 3) (5 6 7) (9 10 11))
                            '((1 2 3) (5 6 7) (9 10 11)))))
   (is (=  '((0 -3) (-10 -1))
           (matrix-*-matrix '((0 4 -2) (-4 -3 0))
@@ -368,13 +368,12 @@
          (fold-left conj '() '(2 3 4))))
   (is (= '(((() 2) 3) 4)
          (fold-left list '() '(2 3 4))))
-   (is (= '(2 (3 (4 ())))
-          (my-accumulator list '() '(2 3 4))))
+  (is (= '(2 (3 (4 ())))
+         (my-accumulator list '() '(2 3 4))))
   (is (= 1/6
          (fold-left / 1 '(1 2 3))))
   (is (= 3/2
-         (my-accumulator / 1 '(1 2 3))))
-  )
+         (my-accumulator / 1 '(1 2 3)))))
 
 ;; 2.39
 (deftest reverse-fr-test
@@ -391,8 +390,8 @@
          (prime-sum-pairs 5))))
 
 (deftest flat-map-test
-  (is (= '(0 1 0 1 2 0 1 2 3) 
-           (flat-map #(range 0 (inc %)) '(1 2 3)))))
+  (is (= '(0 1 0 1 2 0 1 2 3)
+         (flat-map #(range 0 (inc %)) '(1 2 3)))))
 
 (deftest better-prime-sum-pairs-test
   (is (= '((3 2 1) (5 3 2) (5 4 1) (7 4 3) (7 5 2))

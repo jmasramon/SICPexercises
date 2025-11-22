@@ -1,5 +1,5 @@
-(ns section-2-2
-   (:require [Chapter1 :as c1]))
+(ns Section2-2
+  (:require [Chapter1 :as c1]))
 
 (defn length [items]
   (if (empty? items)
@@ -258,7 +258,7 @@
   [s]
   ;;(println "s: " s)
   (if (empty? s)
-      ;; (println "empty s")
+    ;; (println "empty s")
     '(())
     (let [pending (subsets (rest s))]
       ;; (println "pending: " pending)
@@ -417,27 +417,26 @@
 (defn prime-sum-pairs
   [n]
   (let [xs (rest (range (inc n)))
-        f #(rest (range %) )
+        f #(rest (range %))
         g #(list %1 %2)
         f' #(map (partial g %) (f %))
         p #(c1/prime? (+ (first %) (second %)))]
-    (map #(cons (+ (first %) (second %)) % ) 
-         (filter p 
+    (map #(cons (+ (first %) (second %)) %)
+         (filter p
                  (fold-left concat nil (map f' xs))))))
 (defn flat-map
   [f xs]
-  (fold-left concat nil (map f xs))
-)
+  (fold-left concat nil (map f xs)))
 
 (defn better-prime-sum-pairs
   [n]
-  (map #(cons (+ (first %) (second %)) % )
+  (map #(cons (+ (first %) (second %)) %)
        (filter #(c1/prime? (+ (first %) (second %)))
-          (flat-map (fn [i]
-                      (map (fn [j]
-                             (list i j))
-                           (rest (range i))))
-                    (rest (range (inc n)))))))
+               (flat-map (fn [i]
+                           (map (fn [j]
+                                  (list i j))
+                                (rest (range i))))
+                         (rest (range (inc n)))))))
 
 (defn set-permutations
   [s]

@@ -1,8 +1,8 @@
-(ns Chapter2_test
+(ns Section2-1-test
   (:require [clojure.test :refer [deftest is]]
-            [Chapter2 :refer :all]))
+            [Section2-1 :refer :all]))
 
-(deftest mytest2 
+(deftest mytest2
   (is (= 2 (+ 1 1))))
 
 ;2.1

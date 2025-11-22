@@ -1,14 +1,14 @@
-(ns Chapter2
- (:require  [Chapter1 :refer [gcd]]))
+(ns Section2-1
+  (:require  [Chapter1 :refer [gcd]]))
 
 
 ;2.1
-(defn make-rat [num den] 
+(defn make-rat [num den]
   (let [g (gcd num den)
-        sign (if (or (and (neg? num)  
+        sign (if (or (and (neg? num)
                           (pos? den))
-                     (and(pos? num) 
-                          (neg? den) ))
+                     (and (pos? num)
+                          (neg? den)))
                -1
                1)]
     (cons (/ (* sign num) g) [(/ den g)])))
@@ -17,44 +17,44 @@
 
 (defn denom [rat] (first (rest rat)))
 
-(defn add-rat-no-closure [x y] (/ (+ (* (numer x) 
-                                        (denom y)) 
-                                     (* (numer y) 
+(defn add-rat-no-closure [x y] (/ (+ (* (numer x)
+                                        (denom y))
+                                     (* (numer y)
                                         (denom x)))
-                                  (* (denom x) 
+                                  (* (denom x)
                                      (denom y))))
 
-(defn add-rat [x y] (make-rat (+ (* (numer x) 
-                                    (denom y)) 
-                                 (* (numer y) 
+(defn add-rat [x y] (make-rat (+ (* (numer x)
+                                    (denom y))
+                                 (* (numer y)
                                     (denom x)))
-                              (* (denom x) 
+                              (* (denom x)
                                  (denom y))))
 
-(defn subs-rat [x y] (make-rat (- (* (numer x) 
-                                     (denom y)) 
-                                  (* (numer y) 
+(defn subs-rat [x y] (make-rat (- (* (numer x)
+                                     (denom y))
+                                  (* (numer y)
                                      (denom x)))
-                               (* (denom x) 
+                               (* (denom x)
                                   (denom y))))
 
-(defn mul-rat [x y] (make-rat (* (numer x) 
-                                 (numer y)) 
-                              (* (denom x) 
+(defn mul-rat [x y] (make-rat (* (numer x)
+                                 (numer y))
+                              (* (denom x)
                                  (denom y))))
 
-(defn div-rat [x y] (make-rat (* (numer x) 
-                                 (denom y)) 
-                              (* (denom x) 
+(defn div-rat [x y] (make-rat (* (numer x)
+                                 (denom y))
+                              (* (denom x)
                                  (numer y))))
 ;2.2
 (defn make-point [x y]
   (cons x [y]))
 
-(defn x-point [p] 
+(defn x-point [p]
   (first p))
 
-(defn y-point [p] 
+(defn y-point [p]
   (first (rest p)))
 
 (defn print-point [p]
@@ -80,7 +80,7 @@
               (/ (+ (y-point (start-segment s))
                     (y-point (end-segment s)))
                  2)))
-                    
+
 ;2.3
 
 (defn make-rectangle [left-lower-point right-upper-point]
@@ -103,11 +103,11 @@
 (defn rectangle-perimeter [r]
   (+ (* 2 (l-rectangle r))
      (* 2 (L-rectangle r))))
-  
+
 (defn rectangle-area [r]
   (* (l-rectangle r)
      (L-rectangle r)))
-  
+
 (defn make-rectangle-bis [l L]
   (cons l (cons L nil)))
 
@@ -120,7 +120,7 @@
 (defn rectangle-perimeter-bis [r]
   (+ (* 2 (l-rectangle-bis r))
      (* 2 (L-rectangle-bis r))))
-  
+
 (defn rectangle-area-bis [r]
   (* (l-rectangle-bis r)
      (L-rectangle-bis r)))
@@ -128,13 +128,13 @@
 ;Pure functional representation: Message-Passing
 (defn cons-bis [x y]
   (defn dispatch [m]
-    (cond 
-     (zero? m) x
+    (cond
+      (zero? m) x
       (= m 1) y
       :else (throw (Exception. "failed"))))
   dispatch)
 
-(defn first-bis [l] 
+(defn first-bis [l]
   (l 0))
 
 (defn rest-bis [l]
@@ -153,7 +153,7 @@
 ;2.5
 (defn num-powers [n prime]
   (defn iter [rest acc]
-    (if (zero? (mod rest prime)) 
+    (if (zero? (mod rest prime))
       (iter (/ rest prime) (inc acc))
       acc))
   (iter n 0))

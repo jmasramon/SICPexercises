@@ -11,13 +11,13 @@ This project contains my solutions to the exercises from the classic computer sc
 ```
 src/
 ├── Chapter1.clj     # Chapter 1 exercises (Building Abstractions with Procedures)
-├── Chapter2.clj     # Chapter 2 exercises (Building Abstractions with Data)
-└── section_2_2.clj  # Detailed section 2.2 exercises (Hierarchical Data)
+├── Section2_1.clj   # Section 2.1 exercises (Data Abstraction - Rational Numbers)
+└── Section2_2.clj   # Section 2.2 exercises (Hierarchical Data and Sequences)
 
 test/
 ├── Chapter1_test.clj
-├── Chapter2_test.clj
-└── section_2_2_test.clj
+├── Section2_1_test.clj
+└── Section2_2_test.clj
 ```
 
 ## Setup and Usage

@@ -1,19 +1,12 @@
 (ns Chapter1
   (:require [clojure.test :as test]
             [clojure.math.numeric-tower :as math]
-            [clojure.pprint]))
-
-;;(+ 1 2)
+            [clojure.pprint])
+  (:refer-clojure :exclude [abs]))
 
 (def size 2)
-;;size
-;;(* 5 size)
-
 (def pi 3.14159)
-
 (def radius 10)
-
-;;(* pi (* radius radius))
 
 (defn square [x] (* x x))
 
@@ -37,13 +30,22 @@
 
 ;;(abs3 -3)
 
+;; ------------------- exercises ----------------------------
+
 ;; 1.2
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5))))) (* 3 (- 6 2) (- 2 7)))
 
 ;; 1.3
-(defn sqrSumBiggest [x y z]
-  (cond (and (> x y) (> y z)) (+ (square x) (square y))
-        true 0))
+(defn sqrSumBiggest 
+  "Returns the sum of squares of the two largest numbers"
+  [x y z]
+  (cond 
+    (and (>= x y) (>= y z)) (+ (square x) (square y))
+    (and (>= x z) (>= z y)) (+ (square x) (square z))
+    (and (>= y x) (>= x z)) (+ (square y) (square x))
+    (and (>= y z) (>= z x)) (+ (square y) (square z))
+    (and (>= z x) (>= x y)) (+ (square z) (square x))
+    :else (+ (square z) (square y))))
 ;;(sqrSumBiggest 3 2 1)
 
 (defn a-plus-abs-b [a b]

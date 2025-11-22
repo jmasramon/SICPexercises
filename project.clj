@@ -1,16 +1,20 @@
 (defproject sicp "0.0.1-SNAPSHOT"
-  :description "FIXME: write description"
-  
-  
-  
-  :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.clojure/math.numeric-tower "0.0.4"]]
-  
-  :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.25.0"]
-                             [venantius/ultra "0.6.0"]
-                             [lein-kibit "0.1.6"]
-                             [lein-cloverage "1.2.2"]]}}
-  
+  :description "Solutions to exercises from Structure and Interpretation of Computer Programs (SICP)"
+  :url "https://github.com/your-username/SICPexercises"
+  :license {:name "MIT License"
+            :url "https://opensource.org/licenses/MIT"}
+
+  :dependencies [[org.clojure/clojure "1.11.1"]
+                 [org.clojure/math.numeric-tower "0.0.5"]]
+
+  :jvm-opts ["-Dclojure.core.async.pool-size=1"]
+
+  :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.26.0"]
+                             [lein-pprint "1.3.2"]
+                             [lein-kibit "0.1.8"]
+                             [lein-cloverage "1.2.4"]]
+                   :jvm-opts ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/disabled-factory"]}}
+
   :test-refresh {;; Specifies a command to run on test
                  ;; failure/success. Short message is passed as the
                  ;; last argument to the command.
@@ -19,7 +23,7 @@
 
                  ;; set to true to send notifications to growl
                  ;; Defaults to false.
-                ;;  :growl false
+                 ;;  :growl false
 
                  ;; only growl and use the notify command if there are
                  ;; failures.
@@ -37,10 +41,10 @@
                  ;; (namespaces where a change was detected in it or a
                  ;; dependent namespace) are run. This can also be
                  ;; passed as a command line option: lein test-refresh :changes-only.
-                :changes-only true
+                 :changes-only true
 
                  ;; If specified, binds value to clojure.test/*stack-trace-depth*
-                ;;  :stack-trace-depth nil
+                 ;;  :stack-trace-depth nil
 
                  ;; specifiy a custom clojure.test report method
                  ;; Specify the namespace and multimethod that will handle reporting

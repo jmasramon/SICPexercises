@@ -376,3 +376,29 @@
          (my-accumulator / 1 '(1 2 3))))
   )
 
+;; 2.39
+(deftest reverse-fr-test
+  (is (= '(3 2 1)
+         (reverse-fr '(1 2 3)))))
+
+(deftest reverse-fl-test
+  (is (= '(3 2 1)
+         (reverse-fl '(1 2 3)))))
+
+;; nested mappings
+(deftest prime-sum-pairs-test
+  (is (= '((3 2 1) (5 3 2) (5 4 1) (7 4 3) (7 5 2))
+         (prime-sum-pairs 5))))
+
+(deftest flat-map-test
+  (is (= '(0 1 0 1 2 0 1 2 3) 
+           (flat-map #(range 0 (inc %)) '(1 2 3)))))
+
+(deftest better-prime-sum-pairs-test
+  (is (= '((3 2 1) (5 3 2) (5 4 1) (7 4 3) (7 5 2))
+         (better-prime-sum-pairs 5))))
+
+(deftest set-permutations-test
+  (is (= 6 (count (set-permutations #{1 2 3}))))
+  (is (= #{'(1 2 3) '(1 3 2) '(2 1 3) '(3 1 2) '(2 3 1) '(3 2 1)}
+         (set (set-permutations #{1 2 3})))))

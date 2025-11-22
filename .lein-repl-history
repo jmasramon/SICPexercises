@@ -14,3 +14,26 @@
 (empty? (rest '()))
 (empty? (rest '(1)))
 (empty? (rest '(1 2)))
+(range 3)
+(def rn (range 3))
+(print rn)
+rn
+(map #(range %) rn)
+(def rn (rest (range 4)))
+rn
+(map #(range %) rn)
+(map #(rest(range %)) rn)
+(rest (map #(rest(range %)) rn))
+(count #{1 2 3})
+(count (disj #{1 2 3} 1))
+(count (disj #{2 3} 2))
+(seq #]{3})
+(seq #{3})
+(= 1 (count (disj #{2 3} 2)))
+eval 'lein test'
+eval 'lein test Chapter1_test'
+eval 'lein test :only Chapter1_test/helper-functions-test'
+eval 'lein cloverage --ns-exclude-regex ".*test.*"'
+eval 'lein test'
+eval 'lein test Chapter1_test'
+eval 'lein cloverage'

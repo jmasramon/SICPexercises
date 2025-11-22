@@ -1,4 +1,5 @@
-(ns section-2-2)
+(ns section-2-2
+   (:require [Chapter1 :as c1]))
 
 (defn length [items]
   (if (empty? items)
@@ -400,3 +401,48 @@
   [f i xs]
   (cond (empty? xs) i
         :else (fold-left f (f i (first xs)) (rest xs)))) ;; TODO: understand why the accumulator has to be the first param 
+
+;; 2.39
+(def fold-right my-accumulator)
+
+(defn reverse-fr
+  [xs]
+  (fold-right #(conj %2 %1) [] xs)) ;; first param x; second acc
+
+(defn reverse-fl
+  [xs]
+  (fold-left #(conj %1 %2) nil xs))
+
+;; nested mappings
+(defn prime-sum-pairs
+  [n]
+  (let [xs (rest (range (inc n)))
+        f #(rest (range %) )
+        g #(list %1 %2)
+        f' #(map (partial g %) (f %))
+        p #(c1/prime? (+ (first %) (second %)))]
+    (map #(cons (+ (first %) (second %)) % ) 
+         (filter p 
+                 (fold-left concat nil (map f' xs))))))
+(defn flat-map
+  [f xs]
+  (fold-left concat nil (map f xs))
+)
+
+(defn better-prime-sum-pairs
+  [n]
+  (map #(cons (+ (first %) (second %)) % )
+       (filter #(c1/prime? (+ (first %) (second %)))
+          (flat-map (fn [i]
+                      (map (fn [j]
+                             (list i j))
+                           (rest (range i))))
+                    (rest (range (inc n)))))))
+
+(defn set-permutations
+  [s]
+  (if (empty? s)
+    '(())
+    (for [x s
+          perm (set-permutations (disj s x))]
+      (cons x perm))))
